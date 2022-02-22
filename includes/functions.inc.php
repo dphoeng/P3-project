@@ -2,7 +2,6 @@
 
 // Check for empty input signup
 function emptyInputSignup($voornaam, $tussenvoegsel, $achternaam, $email, $username, $pwd, $pwdRepeat) {
-	$result;
 	if (empty($voornaam) || empty($tussenvoegsel) || empty($achternaam) || empty($email) || empty($username) || empty($pwd) || empty($pwdRepeat)) {
 		$result = true;
 	}
@@ -14,7 +13,6 @@ function emptyInputSignup($voornaam, $tussenvoegsel, $achternaam, $email, $usern
 
 // Check invalid username
 function invalidUid($username) {
-	$result;
 	if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
 		$result = true;
 	}
@@ -26,7 +24,6 @@ function invalidUid($username) {
 
 // Check invalid email
 function invalidEmail($email) {
-	$result;
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		$result = true;
 	}
@@ -38,7 +35,6 @@ function invalidEmail($email) {
 
 // Check if passwords matches
 function pwdMatch($pwd, $pwdrepeat) {
-	$result;
 	if ($pwd !== $pwdrepeat) {
 		$result = true;
 	}
@@ -96,7 +92,6 @@ function createUser($conn, $voornaam, $tussenvoegsel, $achternaam, $email, $user
 
 // Check for empty input login
 function emptyInputLogin($username, $pwd) {
-	$result;
 	if (empty($username) || empty($pwd)) {
 		$result = true;
 	}
