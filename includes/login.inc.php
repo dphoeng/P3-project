@@ -9,12 +9,12 @@ if (isset($_POST["submit"])) {
   // Then we run a bunch of error handlers to catch any user mistakes we can (you can add more than I did)
   // These functions can be found in functions.inc.php
 
-  require_once "../php/mysql.php";
+  require_once "../pages/mysql.php";
   require_once 'functions.inc.php';
 
   // Left inputs empty
   if (emptyInputLogin($username, $pwd) === true) {
-    header("location: ../php/login.php?error=emptyinput");
+    header("location: ../pages/login.php?error=emptyinput");
 		exit();
   }
 
@@ -24,6 +24,6 @@ if (isset($_POST["submit"])) {
   loginUser($conn, $username, $pwd);
 
 } else {
-	header("location: ../php/login.php");
+	header("location: ../pages/login.php");
     exit();
 }

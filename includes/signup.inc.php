@@ -14,33 +14,33 @@ if (isset($_POST["submit"])) {
   // Then we run a bunch of error handlers to catch any user mistakes we can (you can add more than I did)
   // These functions can be found in functions.inc.php
 
-  require_once "../php/mysql.php";
+  require_once "../pages/mysql.php";
   require_once 'functions.inc.php';
 
   // Left inputs empty
   // We set the functions "!== false" since "=== true" has a risk of giving us the wrong outcome
   if (emptyInputSignup($voornaam, $tussenvoegsel, $achternaam, $email, $username, $pwd, $pwdRepeat) !== false) {
-    header("location: ../php/signup.php?error=emptyinput");
+    header("location: ../pages/signup.php?error=emptyinput");
 		exit();
   }
 	// Proper username chosen
   if (invalidUid($username) !== false) {
-    header("location: ../php/signup.php?error=invaliduid");
+    header("location: ../pages/signup.php?error=invaliduid");
 		exit();
   }
   // Proper email chosen
   if (invalidEmail($email) !== false) {
-    header("location: ../php/signup.php?error=invalidemail");
+    header("location: ../pages/signup.php?error=invalidemail");
 		exit();
   }
   // Do the two passwords match?
   if (pwdMatch($pwd, $pwdRepeat) !== false) {
-    header("location: ../php/signup.php?error=passwordsdontmatch");
+    header("location: ../pages/signup.php?error=passwordsdontmatch");
 		exit();
   }
   // Is the username taken already
   if (uidExists($conn, $username) !== false) {
-    header("location: ../php/signup.php?error=usernametaken");
+    header("location: ../pages/signup.php?error=usernametaken");
 		exit();
   }
 
@@ -50,6 +50,6 @@ if (isset($_POST["submit"])) {
   createUser($conn, $voornaam, $tussenvoegsel, $achternaam, $email, $username, $pwd);
 
 } else {
-	header("location: ../php/signup.php");
+	header("location: ../pages/signup.php");
     exit();
 }

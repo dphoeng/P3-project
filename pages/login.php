@@ -16,7 +16,7 @@
             <li><a href="../../index.php">Home</a></li>
          <?php
             if (isset($_SESSION["userid"])) {
-                echo "<li><a href='./src/php/logout.php'>Logout</a></li>";
+                echo "<li><a href='./src/pages/logout.php'>Logout</a></li>";
             }
             if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 1)
                  echo "<li><a href='dashboard.php'>Dashboard</a></li>";
