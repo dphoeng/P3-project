@@ -13,28 +13,31 @@
 </head>
 <body>
 <header>
-<nav>
+    <nav>
         <div class="logo">
             <a href="./index.php"><img src="./src/img/dagblad_algemeen.png" alt=""></a>
         </div>
-		<div class="menu">
-        <ul>
-            <li><a href="#sport">Sport</a></li>
-            <li><a href="#politiek">Politiek</a></li>
-            <li><a href="#economie">Economie</a></li>
-            <li><a href="#tech">Tech</a></li>
-         <?php
-            if (isset($_SESSION["userid"])) {
-                echo "<li><a href='./pages/logout.php'>Logout</a></li>";
-            if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 1)
-                 echo "<li><a href='./pages/reservation.php'>Reservation</a></li>";
-                 echo "<li><a href='./pages/dashboard.php'>Dashboard</a></li>";
-           } else {
-                echo "<li><a href='./pages/signup.php'>Sign up</a></li>";
-                echo "<li><a href='./pages/login.php'>Log in</a></li>";
-            }
-         ?>
-        </ul>
+        <div class="menu">
+            <ul class="nav-left">
+                <li><a href="#sport">Sport</a></li>
+                <li><a href="#politiek">Politiek</a></li>
+                <li><a href="#economie">Economie</a></li>
+                <li><a href="#tech">Tech</a></li>
+            </ul>
+
+            <ul>
+             <?php
+                if (isset($_SESSION["userid"])) {
+                    echo "<li><a href='./pages/logout.php'>Logout</a></li>";
+                if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 1)
+                     echo "<li><a href='./pages/reservation.php'>Reservation</a></li>";
+                     echo "<li><a href='./pages/dashboard.php'>Dashboard</a></li>";
+               } else {
+                    echo "<li><a href='./pages/signup.php'>Sign up</a></li>";
+                    echo "<li><a href='./pages/login.php'>Log in</a></li>";
+                }
+             ?>
+            </ul>
 		</div>
         <div class="mobile-hamburger">
             <button class="hamburger hamburger--arrow" type="button">
@@ -54,7 +57,74 @@
 	}
 	?>
 <main>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 </main>
 </body>
 <script src="src/js/nav.js"></script>

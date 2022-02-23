@@ -1,37 +1,58 @@
 body {
+  width: 100%;
+  height: 100%;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow-x: hidden;
+  font-size: 18px;
+}
 
 body * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 nav {
   display: flex;
-  justify-content: space-around;
+  position: fixed;
+  width: 100%;
   align-items: center;
+  justify-content: flex-start;
   box-shadow: 2px 2px 2px -2px rgba(0, 0, 0, 0.2);
   padding: 0;
   margin: 0;
   background-color: red;
-  height: 12vh; }
-  nav div.logo img {
-    height: 12vh; }
-  nav div.menu {
-    display: flex;
-    justify-content: center; }
-    nav div.menu ul {
-      display: flex;
-      letter-spacing: 3px;
-      padding: 0; }
-      nav div.menu ul li {
-        display: flex;
-        list-style: none; }
-        nav div.menu ul li a {
-          color: lightgray;
-          text-decoration: none;
-          padding: .5rem .5rem;
-          transition: 0.8s; }
-          nav div.menu ul li a:hover {
-            color: #454242;
-            border-radius: 50%;
-            transition: 0.8s; }
+  height: 12vh;
+}
+nav div.logo img {
+  height: 12vh;
+}
+nav div.mobile-hamburger {
+  display: none;
+}
+nav div.menu {
+  width: 100%;
+  display: flex;
+}
+nav div.menu ul {
+  display: flex;
+  letter-spacing: 3px;
+  padding: 0 2rem;
+}
+nav div.menu ul.nav-left {
+  width: 100%;
+}
+nav div.menu ul li {
+  list-style: none;
+}
+nav div.menu ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0.5rem;
+  transition: 0.8s;
+}
+nav div.menu ul li a:hover {
+  color: #454242;
+  transition: 0.8s;
+}
+
+/*# sourceMappingURL=style.css.map */

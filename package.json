@@ -1,0 +1,23 @@
+{
+  "name": "p3",
+  "version": "1.0.0",
+  "description": "Hallo",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	  "sass": "sass --watch src/scss/style.scss:src/css/style.css src/scss/hamburger.scss:src/css/hamburger.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dphoeng/P3-project.git"
+  },
+  "author": "Daniel Phoeng",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dphoeng/P3-project/issues"
+  },
+  "homepage": "https://github.com/dphoeng/P3-project#readme",
+  "devDependencies": {
+    "sass": "^1.49.8"
+  }
+}

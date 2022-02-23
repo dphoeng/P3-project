@@ -1,0 +1,48 @@
+@media only screen and (max-width: 992px) {
+    header {
+        nav {
+            div.menu {
+                align-items: flex-start;
+                justify-content: center;
+                position: absolute;
+                height: 88vh;
+                top: 12vh;
+                background-color: lightgray;
+                left: 100%;
+                transition: left .8s cubic-bezier(0, 0, 0.02, 1.03);
+                &.is-active {
+                    left: 0;
+                    transition: left .8s cubic-bezier(0, 0, 0.02, 1.03);
+                }
+                ul {
+                    flex-direction: column;
+                    &.nav-left {
+                        width: auto;
+                    }
+                    z-index: 4;
+                    li {
+                        margin: 3rem 0;
+                        a {
+                            font-size: 1.6rem;
+                            color: black;
+                            transition: 0.8s;
+                            &:hover {
+                                color: rgba(0, 0, 0, 0.219);
+                                transition: 0.8s;
+                            }
+                        }
+                    }
+                }
+            }
+            div.mobile-hamburger {
+                display: flex;
+                width: 100%;
+                justify-content: flex-end;
+                padding: 2rem;
+                button {
+                    z-index: 5;
+                }
+            }
+        }
+    }
+}
