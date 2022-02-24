@@ -17,14 +17,11 @@
     flex-direction: column;
     z-index: 4;
   }
-  header nav div.menu ul.nav-left {
-    width: auto;
-  }
   header nav div.menu ul li {
     margin: 3rem 0;
   }
   header nav div.menu ul li a {
-    font-size: 1.6rem;
+    font-size: xxx-large;
     color: black;
     transition: 0.8s;
   }

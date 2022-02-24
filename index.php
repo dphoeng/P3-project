@@ -18,7 +18,7 @@
             <a href="./index.php"><img src="./src/img/dagblad_algemeen.png" alt=""></a>
         </div>
         <div class="menu">
-            <ul class="nav-left">
+            <ul>
                 <li><a href="#sport">Sport</a></li>
                 <li><a href="#politiek">Politiek</a></li>
                 <li><a href="#economie">Economie</a></li>
@@ -48,7 +48,9 @@
         </div>
     </nav>
 </header>
-	<?php if (isset($_SESSION["userid"])) {
+
+<main>
+<?php if (isset($_SESSION["userid"])) {
 		echo "<button><a href=\"./pages/logout.php\">Uitloggen</a></button>";
 		echo "<button><a href=\"./pages/artikelmaken.php\">Artikel maken</a></button>";
 	} else {
@@ -56,7 +58,6 @@
 		echo "<button><a href=\"./pages/signup.php\">Registreren</a></button>";
 	}
 	?>
-<main>
 <br>
 <br>
 <br>

@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-size: 18px;
+  font-family: "Roboto", sans-serif;
 }
 
 body * {
@@ -14,9 +14,10 @@ body * {
 nav {
   display: flex;
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   align-items: center;
-  justify-content: flex-start;
   box-shadow: 2px 2px 2px -2px rgba(0, 0, 0, 0.2);
   padding: 0;
   margin: 0;
@@ -30,16 +31,14 @@ nav div.mobile-hamburger {
   display: none;
 }
 nav div.menu {
-  width: 100%;
   display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 nav div.menu ul {
   display: flex;
   letter-spacing: 3px;
   padding: 0 2rem;
-}
-nav div.menu ul.nav-left {
-  width: 100%;
 }
 nav div.menu ul li {
   list-style: none;
@@ -53,6 +52,10 @@ nav div.menu ul li a {
 nav div.menu ul li a:hover {
   color: #454242;
   transition: 0.8s;
+}
+
+main {
+  margin-top: 12vh;
 }
 
 /*# sourceMappingURL=style.css.map */

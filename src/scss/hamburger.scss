@@ -16,14 +16,11 @@
                 }
                 ul {
                     flex-direction: column;
-                    &.nav-left {
-                        width: auto;
-                    }
                     z-index: 4;
                     li {
                         margin: 3rem 0;
                         a {
-                            font-size: 1.6rem;
+							font-size: xxx-large;
                             color: black;
                             transition: 0.8s;
                             &:hover {
