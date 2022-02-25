@@ -17,16 +17,16 @@ include_once '../includes/functions.inc.php';
             <h1><a href="index.html"></a>ES.Excido</h1>
         </div>
         <ul class="nav-links">
-            <li><a href="../../index.php">Home</a></li>
-         <?php
+            <li><a href="../index.php">Home</a></li>
+            <?php
             if (isset($_SESSION["userid"])) {
-                echo "<li><a href='./src/pages/logout.php'>Logout</a></li>";
+                echo "<li><a href='./pages/logout.php'>Logout</a></li>";
             }
             if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 1)
-                echo "<li><a href='dashboard.php'>Dashboard</a></li>";
+                 echo "<li><a href='dashboard.php'>Dashboard</a></li>";
             else {
-                echo "<li><a href='../pages/signup.php'>Sign up</a></li>";
-                echo "<li><a href='../pages/login.php'>Log in</a></li>";
+                echo "<li><a href='./signup.php'>Sign up</a></li>";
+                echo "<li><a href='#'>Log in</a></li>";
             }
          ?>
         </ul>

@@ -3,8 +3,8 @@
     align-items: flex-start;
     justify-content: center;
     position: absolute;
-    height: 88vh;
-    top: 12vh;
+    height: 84vh;
+    top: 16vh;
     background-color: lightgray;
     left: 100%;
     transition: left 0.8s cubic-bezier(0, 0, 0.02, 1.03);

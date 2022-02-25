@@ -8,6 +8,7 @@
 <head>
 	<title>Document</title>
 	<link rel="stylesheet" href="src/css/style.css">
+	<!-- <link rel="stylesheet" href="src/css/grid.css"> -->
 	<link rel="stylesheet" href="src/css/hamburger.css">
 	<link rel="stylesheet" href="src/css/hamburger.min.css">
 </head>
@@ -28,14 +29,19 @@
             <ul>
              <?php
                 if (isset($_SESSION["userid"])) {
+                    if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] >= 1)
+                    {
+                        echo "<li><a href='./pages/artikelmaken.php'>Archief</a></li>";
+                        if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 2) {
+                            echo "<li><a href='./pages/dashboard.php'>Dashboard</a></li>";
+                        }
+                    }
                     echo "<li><a href='./pages/logout.php'>Logout</a></li>";
-                if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 1)
-                     echo "<li><a href='./pages/reservation.php'>Reservation</a></li>";
-                     echo "<li><a href='./pages/dashboard.php'>Dashboard</a></li>";
-               } else {
+                } else {
                     echo "<li><a href='./pages/signup.php'>Sign up</a></li>";
                     echo "<li><a href='./pages/login.php'>Log in</a></li>";
                 }
+
              ?>
             </ul>
 		</div>
@@ -50,83 +56,38 @@
 </header>
 
 <main>
-<?php if (isset($_SESSION["userid"])) {
-		echo "<button><a href=\"./pages/logout.php\">Uitloggen</a></button>";
-		echo "<button><a href=\"./pages/artikelmaken.php\">Artikel maken</a></button>";
-	} else {
-		echo "<button><a href=\"./pages/login.php\">Login</a></button>";
-		echo "<button><a href=\"./pages/signup.php\">Registreren</a></button>";
-	}
-	?>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+    <div class="banner">
+
+    </div>
+    <div class="container" id="sport">
+        <div class="row">
+            <div class="category"><h2>Sport</h2></div>
+            <div class="artikels">
+                <div class="cover">
+                    <img src="./src/img/thing.jpg" alt="">
+                </div>
+                <div class="side">a</div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="politiek">
+        <div class="row">
+            <div class="category"><h2>Politiek</h2></div>
+            <div class="artikels">
+                <div class="cover">
+                    <img src="./src/img/theng.jpg" alt="">
+                </div>
+                <div class="side">a</div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="economie">
+        <h2>Economie</h2>
+    </div>
+    <div class="container" id="tech">
+        <h2>Tech</h2>
+    </div>
 </main>
 </body>
-<script src="src/js/nav.js"></script>
+<script src="./src/js/nav.js"></script>
 </html>

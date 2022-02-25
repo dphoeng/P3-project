@@ -1,3 +1,5 @@
+$navbar-height: 16vh;
+
 @media only screen and (max-width: 992px) {
     header {
         nav {
@@ -5,8 +7,8 @@
                 align-items: flex-start;
                 justify-content: center;
                 position: absolute;
-                height: 88vh;
-                top: 12vh;
+                height: calc(100vh - $navbar-height);
+                top: $navbar-height;
                 background-color: lightgray;
                 left: 100%;
                 transition: left .8s cubic-bezier(0, 0, 0.02, 1.03);
