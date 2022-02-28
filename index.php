@@ -8,7 +8,7 @@
 <head>
 	<title>Document</title>
 	<link rel="stylesheet" href="src/css/style.css">
-	<!-- <link rel="stylesheet" href="src/css/grid.css"> -->
+	<link rel="stylesheet" href="src/css/grid.css">
 	<link rel="stylesheet" href="src/css/hamburger.css">
 	<link rel="stylesheet" href="src/css/hamburger.min.css">
 </head>
@@ -59,27 +59,24 @@
     <div class="banner">
 
     </div>
-    <div class="container" id="sport">
+    <div class="container card" id="sport">
         <div class="row">
-            <div class="category"><h2>Sport</h2></div>
-            <div class="artikels">
-                <div class="cover">
-                    <img src="./src/img/thing.jpg" alt="">
-                </div>
-                <div class="side">a</div>
+			<div class="col-12 categorie"><h2>Sport</h2></div>
+			<div class="col-7 grow"><img src="./src/img/thing.jpg" alt=""></div>
+			<div class="col-5 grow">
+				<div class="row side-artikels">
+					<div class="col-3">aaa</div>
+					<div class="col-9">aaa</div>
+					<div class="col-3">aaa</div>
+					<div class="col-9">aaa</div>
+					<div class="col-3">aaa</div>
+					<div class="col-9">aaa</div>
+				</div>
             </div>
         </div>
     </div>
     <div class="container" id="politiek">
-        <div class="row">
-            <div class="category"><h2>Politiek</h2></div>
-            <div class="artikels">
-                <div class="cover">
-                    <img src="./src/img/theng.jpg" alt="">
-                </div>
-                <div class="side">a</div>
-            </div>
-        </div>
+        <h2>Politiek</h2>
     </div>
     <div class="container" id="economie">
         <h2>Economie</h2>
