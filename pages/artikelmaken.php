@@ -10,11 +10,11 @@ if (!isset($_SESSION["userid"]))
 
 ?>
 
-<form class="contact-form" action="../includes/artikelmaken.inc.php" method="post">
+<form class="contact-form" action="../includes/artikelmaken.inc.php" method="post" enctype="multipart/form-data">
     <h3>Titel</h3>
-    <input type="text" name="titel" placeholder="Titel" required="required">
+    <input type="text" name="titel" placeholder="Titel" required>
     <h3>Text</h3>
-    <input type="text" name="text" placeholder="Text">
+    <input type="text" name="text" placeholder="Text" required>
 	<select name="keuzeveld">
 		<option value="Sport">Sport</option>
 		<option value="Politiek">Politiek</option>
@@ -22,6 +22,6 @@ if (!isset($_SESSION["userid"]))
 		<option value="Tech">Tech</option>
 	</select>
 	<h3>Image</h3>
-    <input type="file" name="file" placeholder="File">
+    <input type="file" name="file" id="file" required>
     <button type="submit" name="submit">Publiceren</button>
 </form>
