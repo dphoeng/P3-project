@@ -56,10 +56,10 @@ for ($x = 0; $x < 4; $x++) {
             </div>
             <div class="menu">
                 <ul>
-                    <li><a href="#sport">Sport</a></li>
-                    <li><a href="#politiek">Politiek</a></li>
-                    <li><a href="#economie">Economie</a></li>
-                    <li><a href="#tech">Tech</a></li>
+                    <li><a onclick="scrollToCards('#sport')">Sport</a></li>
+                    <li><a onclick="scrollToCards('#politiek')">Politiek</a></li>
+                    <li><a onclick="scrollToCards('#economie')">Economie</a></li>
+                    <li><a onclick="scrollToCards('#tech')">Tech</a></li>
                 </ul>
 
                 <ul>
@@ -78,6 +78,7 @@ for ($x = 0; $x < 4; $x++) {
                     }
 
                     ?>
+                    <li><a href='./pages/debug.php'>Debug</a></li>
                 </ul>
             </div>
             <div class="mobile-hamburger">
@@ -199,5 +200,6 @@ for ($x = 0; $x < 4; $x++) {
     </main>
 </body>
 <script src="./src/js/nav.js"></script>
+<script src="./src/js/scroll.js"></script>
 
 </html>

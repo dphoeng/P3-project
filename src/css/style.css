@@ -51,6 +51,7 @@ nav div.menu ul li a {
   text-decoration: none;
   padding: 0.5rem 0.5rem;
   transition: 0.8s;
+  cursor: pointer;
 }
 nav div.menu ul li a:hover {
   color: #454242;
@@ -81,7 +82,7 @@ main div.container {
   display: flex;
 }
 main div.card {
-  max-height: 75vh;
+  height: 75vh;
   width: 100vw;
   background-color: lightblue;
   padding: 1rem;

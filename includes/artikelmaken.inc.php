@@ -1,7 +1,8 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 session_start();
+
+require_once "../pages/mysql.php";
+require_once "../includes/functions.inc.php";
 
 if (isset($_POST["submit"])) {
 	$titel = $_POST["titel"];
@@ -27,15 +28,29 @@ if (isset($_POST["submit"])) {
 	$userid = $_SESSION["userid"];
 	$datum = date("Y-m-d H:i:s");
 
+	$sql = 'SELECT imageLocation FROM artikelen WHERE artikelId = (SELECT max(artikelId) FROM artikelen)';
+	$result = $conn->query($sql);
+	
+	$imageId = 0;
+
+	if ($result->num_rows > 0) {
+		while ($row = $result->fetch_assoc()) {
+			$imageId = pathinfo($row['imageLocation'],PATHINFO_FILENAME);
+			$imageId++;
+		}
+	}
 	
 	$target_dir = "../src/img/uploads/";
-	$target_file = $target_dir . basename($_FILES["file"]["name"]);
-	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+	$save_dir = "./src/img/uploads/";
+	$imageFileType = strtolower(pathinfo(basename($_FILES["file"]["name"]),PATHINFO_EXTENSION));
+	
+	$target_file = $target_dir . $imageId . '.' . $imageFileType;
+	$save_file = $save_dir . $imageId . '.' . $imageFileType;
+	
 	$typeArray = array("jpg", "png", "jpeg", "gif");
-
+	
 	$check = getimagesize($_FILES["file"]["tmp_name"]);
 	if ($check !== false) {
-    	echo "File is an image - " . $check["mime"] . ".";
 		if ($_FILES["file"]["size"] < 5000000) {
 			if (in_array($imageFileType, $typeArray)) {
 				if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
@@ -53,14 +68,11 @@ if (isset($_POST["submit"])) {
 		echo "File is not an image.";
 	}
 
-	require_once "../pages/mysql.php";
-	require_once "../includes/functions.inc.php";
-
 	$stmt = $conn->prepare("INSERT INTO artikelen (artikelId, usersId, titel, text, datum, categorie, imageLocation) VALUES (NULL, ?, ?, ?, ?, ?, ?)");
-	$stmt->bind_param("isssi", $userid, $titel, $text, $datum, $categorie, $target_file);
+	$stmt->bind_param("isssis", $userid, $titel, $text, $datum, $categorie, $save_file);
 
 	if ($stmt->execute()) {
-		header("Refresh: 5; Location: ../index.php");
+		header("Location: ../index.php");
 	} else {
 		header("Location: ../index.php");
 	}
