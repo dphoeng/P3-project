@@ -198,6 +198,8 @@ for ($x = 0; $x < 4; $x++) {
             </div>
         </div>
     </main>
+
+    <?php include("./pages/footer.php");?>
 </body>
 <script src="./src/js/nav.js"></script>
 <script src="./src/js/scroll.js"></script>
