@@ -1,3 +1,9 @@
+<?php
+session_start();
+include_once './includes/functions.inc.php';
+include './pages/mysql.php';
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,7 +1,4 @@
 <?php
-session_start();
-include_once './includes/functions.inc.php';
-include './pages/mysql.php';
 
 for ($x = 0; $x < 4; $x++) {
     $titleArray = array();

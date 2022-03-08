@@ -8,15 +8,15 @@
 </head>
 <body>
 
-<footer class="footer">
+<footer>
     <div class="container">
         <div class="row">
             <div class="footer-col">
-                <h4>Daily Paiper</h4>
+                <h4>Dagblad Algemeen</h4>
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Archief</a></li>
-                    <li><a href="#">LogIn</a></li>
+                    <li><a href="#">Log In</a></li>
                     <li><a href="#">New</a></li>
                 </ul>
             </div>
@@ -35,12 +35,12 @@
                 <ul>
                     <li><a href="#">Daltonlaan 300</a></li>
                     <li><a href="#">035123456636</a></li>
-                    <li><a href="#">Dailypaiper@gmail.com</a></li>
+                    <li><a href="#">dagbladalgemeen@gmail.com</a></li>
                     <li><a href="#">©️copyright-Andrej/Luiz</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h4>follow us</h4>
+                <h4>Follow Us</h4>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -48,6 +48,9 @@
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
+			<div class="footer-col logo">
+				<img src="./src/img/dagblad_algemeen2.png" alt="">
+			</div>
         </div>
     </div>
 </footer>
