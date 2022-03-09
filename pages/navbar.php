@@ -15,7 +15,7 @@
                 <?php
                 if (isset($_SESSION["userid"])) {
                     if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] >= 1) {
-                        echo "<li><a href='./pages/artikelmaken.php'>Archief</a></li>";
+                        echo "<li><a href='./pages/archief.php'>Archief</a></li>";
                         if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 2) {
                             echo "<li><a href='./pages/dashboard.php'>Dashboard</a></li>";
                         }

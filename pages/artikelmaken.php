@@ -12,9 +12,9 @@ if (!isset($_SESSION["userid"]))
 
 <form class="contact-form" action="../includes/artikelmaken.inc.php" method="post" enctype="multipart/form-data">
     <h3>Titel</h3>
-    <input type="text" name="titel" placeholder="Titel" required>
+    <input type="text" name="titel" placeholder="Titel" maxlength=50 required>
     <h3>Text</h3>
-    <input type="text" name="text" placeholder="Text" required>
+    <input type="text" name="text" placeholder="Text" maxlength=100 required>
 	<select name="keuzeveld">
 		<option value="Sport">Sport</option>
 		<option value="Politiek">Politiek</option>

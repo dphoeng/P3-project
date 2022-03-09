@@ -1,8 +1,13 @@
 <?php
 session_start();
-
 require_once "../pages/mysql.php";
 require_once "../includes/functions.inc.php";
+
+if (!isset($_SESSION["userid"]))
+{
+	header("Location: ../index.php");
+	exit();
+}
 
 if (isset($_POST["submit"])) {
 	$titel = $_POST["titel"];
