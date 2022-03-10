@@ -170,15 +170,11 @@ main {
 				a {
 					color: black;
 					margin: .3rem;
-					padding: 1em;
+					padding: 1rem;
 					text-decoration: none;
 					border-radius: 3px;
 					&:active {
 						color: black;
-					}
-					&:hover {
-						border: 1px solid black;
-						font-size: 22px;
 					}
 				}
 			}

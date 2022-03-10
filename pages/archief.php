@@ -8,7 +8,18 @@ if (!isset($_SESSION["userid"])) {
 	exit();
 }
 
-$sql = "SELECT * FROM artikelen";
+$idCheck = "";
+
+if (!isset($_GET["showOnly"])) {
+	$showOnly = 0;
+} else if ($_GET["showOnly"]) {
+	$showOnly = 1;
+	$idCheck = "WHERE usersId = {$_SESSION['userid']}";
+} else {
+	$showOnly = 0;
+}
+
+$sql = "SELECT * FROM artikelen ".$idCheck;
 
 $result = mysqli_query($conn, $sql);
 
@@ -34,8 +45,7 @@ if ($page < 5 || $pages <= 7)
 	$paginationStart = $page-1;
 }
 
-
-$sql = "SELECT * FROM artikelen ORDER BY datum desc LIMIT $start, $per_page";
+$sql = "SELECT * FROM artikelen ".$idCheck." ORDER BY datum desc LIMIT $start, $per_page";
 $result = mysqli_query($conn, $sql);
 
 $sql = "SELECT * FROM users WHERE usersId = {$_SESSION['userid']}";
@@ -107,8 +117,13 @@ while ($record = mysqli_fetch_assoc($result)) {
 <body>
 	<?php include("./navbar.php"); ?>
 	<main>
-		<a href="./artikelmaken.php">Artikel maken</a>
-		<p>Logged in as <?php echo $currentName; ?></p>
+		<div>
+			<label>Alleen mijn artikelen laten zien</label>
+			<input type="checkbox" id="showOnly" <?php if ($showOnly) { echo "checked"; } ?>>
+			<p>Logged in as <?php echo $currentName; ?></p>
+			<a href="./artikelmaken.php">Artikel maken</a>
+		</div>
+
 		<table>
 			<thead>
 				<tr>
@@ -130,7 +145,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 		<div class="pagination">
 			<ul>
 				<li>
-					<a href="archief.php?page=<?php if ($page > 1) {
+					<a href="archief.php?showOnly=<?php echo $showOnly; ?>&page=<?php if ($page > 1) {
 													echo $page - 1;
 												} else {
 													echo $page;
@@ -141,46 +156,46 @@ while ($record = mysqli_fetch_assoc($result)) {
 				<?php if ($pages <= 7) {
 						for ($i = $paginationStart; $i <= $pages; $i++) {
 							if ($page == $i) {
-								echo "<li class='current-page'><a href='archief.php?page=" . $i . "'>" . $i . "</a></li>";
+								echo "<li class='current-page'><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
 							} else {
-								echo "<li><a href='archief.php?page=" . $i . "'>" . $i . "</a></li>";
+								echo "<li><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
 							}
 						}
 					} else if ($page < 5) {
 						for ($i = $paginationStart; $i < $paginationStart + 5 && $i <= $pages; $i++) {
 							if ($page == $i) {
-								echo "<li class='current-page'><a href='archief.php?page=" . $i . "'>" . $i . "</a></li>";
+								echo "<li class='current-page'><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
 							} else {
-								echo "<li><a href='archief.php?page=" . $i . "'>" . $i . "</a></li>";
+								echo "<li><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
 							}
 						}
 						echo "<li>...</li>";
-						echo "<li><a href='archief.php?page=" . $pages . "'>" . $pages . "</a></li>";
+						echo "<li><a href='archief.php?showOnly=".$showOnly."&page=" . $pages . "'>" . $pages . "</a></li>";
 					} else {
-						echo "<li><a href='archief.php?page=1'>1</a></li>";
+						echo "<li><a href='archief.php?showOnly=".$showOnly."&page=1'>1</a></li>";
 						echo "<li>...</li>";
 						if ($page + 4 > $pages) {
 							for ($i = $paginationStart; $i <= $pages; $i++) {
 								if ($page == $i) {
-									echo "<li class='current-page'><a href='archief.php?page=" . $i . "'>" . $i . "</a></li>";
+									echo "<li class='current-page'><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
 								} else {
-									echo "<li><a href='archief.php?page=" . $i . "'>" . $i . "</a></li>";
+									echo "<li><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
 								}
 							}
 						} else {
 							for ($i = $paginationStart; $i < $paginationStart + 3; $i++) {
 								if ($page == $i) {
-									echo "<li class='current-page'><a href='archief.php?page=" . $i . "'>" . $i . "</a></li>";
+									echo "<li class='current-page'><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
 								} else {
-									echo "<li><a href='archief.php?page=" . $i . "'>" . $i . "</a></li>";
+									echo "<li><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
 								}
 							}
 							echo "<li>...</li>";
-							echo "<li><a href='archief.php?page=".$pages."'>".$pages."</a></li>";
+							echo "<li><a href='archief.php?showOnly=".$showOnly."&page=".$pages."'>".$pages."</a></li>";
 						}
 					}?>
 				<li>
-					<a href="archief.php?page=<?php if ($page < $pages) {
+					<a href="archief.php?showOnly=<?php echo $showOnly; ?>&page=<?php if ($page < $pages) {
 													echo $page + 1;
 												} else {
 													echo $page;
@@ -194,6 +209,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 	<?php include("./footer.php"); ?>
 
 </body>
+<script src="../src/js/archief.js"></script>
 
 
 </html>

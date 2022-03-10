@@ -162,16 +162,12 @@ main div.pagination ul li.current-page a {
 main div.pagination ul li a {
   color: black;
   margin: 0.3rem;
-  padding: 1em;
+  padding: 1rem;
   text-decoration: none;
   border-radius: 3px;
 }
 main div.pagination ul li a:active {
   color: black;
-}
-main div.pagination ul li a:hover {
-  border: 1px solid black;
-  font-size: 22px;
 }
 
 footer {
