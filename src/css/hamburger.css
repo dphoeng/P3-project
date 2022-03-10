@@ -6,7 +6,7 @@
     height: 84vh;
     top: 16vh;
     background-color: lightgray;
-    left: 100%;
+    left: -200%;
     transition: left 0.8s cubic-bezier(0, 0, 0.02, 1.03);
   }
   header nav div.menu.is-active {
@@ -21,7 +21,7 @@
     margin: 3rem 0;
   }
   header nav div.menu ul li a {
-    font-size: xxx-large;
+    font-size: large;
     color: black;
     transition: 0.8s;
   }

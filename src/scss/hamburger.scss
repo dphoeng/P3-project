@@ -10,7 +10,7 @@ $navbar-height: 16vh;
                 height: calc(100vh - $navbar-height);
                 top: $navbar-height;
                 background-color: lightgray;
-                left: 100%;
+                left: -200%;
                 transition: left .8s cubic-bezier(0, 0, 0.02, 1.03);
                 &.is-active {
                     left: 0;
@@ -22,7 +22,7 @@ $navbar-height: 16vh;
                     li {
                         margin: 3rem 0;
                         a {
-							font-size: xxx-large;
+							font-size: large;
                             color: black;
                             transition: 0.8s;
                             &:hover {

@@ -41,7 +41,7 @@ for ($x = 0; $x < 4; $x++) {
         <div class="card">
             <h2>Sport</h2>
             <div class="row">
-                <div class="col main-article">
+                <div class="col main-article <?php if (isset($_SESSION["userid"])) { echo "logged-in";} ?>">
                     <img src="<?php echo $imageArraySport[0]; ?>">
                     <span><?php echo $titleArraySport[0]; ?></span>
                 </div>
@@ -67,7 +67,7 @@ for ($x = 0; $x < 4; $x++) {
         <div class="card">
             <h2>Politiek</h2>
             <div class="row">
-                <div class="col main-article">
+                <div class="col main-article <?php if (isset($_SESSION["userid"])) { echo "logged-in";} ?>">
                     <img src="<?php echo $imageArrayPolitiek[0]; ?>">
                     <span><?php echo $titleArrayPolitiek[0]; ?></span>
                 </div>
@@ -93,7 +93,7 @@ for ($x = 0; $x < 4; $x++) {
         <div class="card">
             <h2>Economie</h2>
             <div class="row">
-                <div class="col main-article">
+                <div class="col main-article <?php if (isset($_SESSION["userid"])) { echo "logged-in";} ?>">
                     <img src="<?php echo $imageArrayEconomie[0]; ?>">
                     <span><?php echo $titleArrayEconomie[0]; ?></span>
                 </div>
@@ -119,7 +119,7 @@ for ($x = 0; $x < 4; $x++) {
         <div class="card">
             <h2>Tech</h2>
             <div class="row">
-                <div class="col main-article">
+                <div class="col main-article <?php if (isset($_SESSION["userid"])) { echo "logged-in";} ?>">
                     <img src="<?php echo $imageArrayTech[0]; ?>">
                     <span><?php echo $titleArrayTech[0]; ?></span>
                 </div>
