@@ -274,6 +274,9 @@ footer {
 					height: 40%;
 					padding-bottom: 1rem;
 					width: 100%;
+					&:not(.logged-in) {
+						height: 100%;
+					}
 				}
 				div.side-articles {
 					height: 60%;
