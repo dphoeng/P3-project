@@ -1,5 +1,37 @@
 $navbar-height: 16vh;
 
+@media only screen and (max-width: 400px) {
+    header {
+        nav {
+            div.menu {
+				ul {
+					li {
+						a {
+							font-size: large;
+						}
+					}
+				}
+			}
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 400.02px) {
+    header {
+        nav {
+            div.menu {
+				ul {
+					li {
+						a {
+							font-size: xx-large;
+						}
+					}
+				}
+			}
+        }
+    }
+}
+
 @media only screen and (max-width: 992px) {
     header {
         nav {
@@ -22,7 +54,6 @@ $navbar-height: 16vh;
                     li {
                         margin: 3rem 0;
                         a {
-							font-size: large;
                             letter-spacing: 5px;
                             color: black;
                             &:hover {
@@ -46,17 +77,3 @@ $navbar-height: 16vh;
     }
 }
 
-@media only screen and (max-width: 400px) {
-    header {
-        nav {
-            ul {
-                li {
-                    a {
-                        font-size: large;
-                        letter-spacing: 5px;
-                    }
-                }
-            }
-        }
-    }
-}
