@@ -3,7 +3,7 @@
     align-items: flex-start;
     justify-content: center;
     position: absolute;
-    height: 84vh;
+    height: 90vh;
     top: 16vh;
     background-color: lightgray;
     left: -200%;
@@ -21,13 +21,14 @@
     margin: 3rem 0;
   }
   header nav div.menu ul li a {
-    font-size: large;
+    font-size: xx-large;
+    letter-spacing: 5px;
     color: black;
     transition: 0.8s;
   }
   header nav div.menu ul li a:hover {
-    color: rgba(0, 0, 0, 0.219);
-    transition: 0.8s;
+    color: whitesmoke;
+    transition: 0.5s;
   }
   header nav div.mobile-hamburger {
     display: flex;
