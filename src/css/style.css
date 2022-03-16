@@ -117,6 +117,10 @@ main div.card div.main-article > span {
   padding: 1rem;
   font-size: 2rem;
 }
+main div.card div.article:not(.logged-in),
+main div.card div.main-article:not(.logged-in) {
+  width: 100%;
+}
 main div.card div.main-article {
   width: calc(60% - 0.5rem);
 }
@@ -136,6 +140,31 @@ main div.card div.side-articles > div.row > div.article-text {
   width: calc(60% - 0.5rem);
 }
 main div.card div.side-articles > div.row > div.article-text p {
+  margin: 0.5rem 0 0 0;
+}
+main div.pagination {
+  display: flex;
+}
+main div.pagination ul {
+  display: flex;
+}
+main div.pagination ul li {
+  list-style: none;
+}
+main div.pagination ul li.current-page a {
+  border: 1px solid black;
+  background-color: #48445a;
+  color: white;
+}
+main div.pagination ul li a {
+  color: black;
+  margin: 0.3rem;
+  padding: 1rem;
+  text-decoration: none;
+  border-radius: 3px;
+}
+main div.pagination ul li a:active {
+  color: black;
   margin: 0.5rem 0 0 0;
 }
 
