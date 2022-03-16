@@ -7,9 +7,6 @@ body {
   font-size: 18px;
   font-family: "Roboto", sans-serif;
 }
-body * {
-  word-break: break-word;
-}
 
 body * {
   box-sizing: border-box;
@@ -20,12 +17,12 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   align-items: center;
   box-shadow: 2px 2px 2px -2px rgba(0, 0, 0, 0.2);
   padding: 0;
   margin: 0;
-  background-color: #a59be0;
+  background-color: #A59BE0;
   height: 16vh;
   z-index: 2;
 }
@@ -66,7 +63,7 @@ main {
 }
 main h1 {
   line-height: 12vh;
-  background-color: #eb88a5;
+  background-color: #EB88A5;
   text-align: center;
   color: white;
 }
@@ -87,7 +84,7 @@ main div.container {
 main div.card {
   height: 75vh;
   width: 100vw;
-  background-color: #e6b3f5;
+  background-color: #E6B3F5;
   padding: 1rem;
   margin: 2rem 4rem;
   border-radius: 0.25rem;
@@ -120,10 +117,6 @@ main div.card div.main-article > span {
   padding: 1rem;
   font-size: 2rem;
 }
-main div.card div.article:not(.logged-in),
-main div.card div.main-article:not(.logged-in) {
-  width: 100%;
-}
 main div.card div.main-article {
   width: calc(60% - 0.5rem);
 }
@@ -145,34 +138,10 @@ main div.card div.side-articles > div.row > div.article-text {
 main div.card div.side-articles > div.row > div.article-text p {
   margin: 0.5rem 0 0 0;
 }
-main div.pagination {
-  display: flex;
-}
-main div.pagination ul {
-  display: flex;
-}
-main div.pagination ul li {
-  list-style: none;
-}
-main div.pagination ul li.current-page a {
-  border: 1px solid black;
-  background-color: #48445a;
-  color: white;
-}
-main div.pagination ul li a {
-  color: black;
-  margin: 0.3rem;
-  padding: 1rem;
-  text-decoration: none;
-  border-radius: 3px;
-}
-main div.pagination ul li a:active {
-  color: black;
-}
 
 footer {
   margin-top: 2rem;
-  background-color: #a59be0;
+  background-color: #A59BE0;
   padding: 4rem 0;
 }
 footer div.container {

@@ -5,7 +5,7 @@
   "main": "index.php",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	  "sass": "sass --watch src/scss/:src/css/"
+	  "sass": "sass --watch src/scss/style.scss:src/css/style.css src/scss/hamburger.scss:src/css/hamburger.css src/scss/grid.scss:src/css/grid.css"
   },
   "repository": {
     "type": "git",
