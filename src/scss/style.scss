@@ -195,6 +195,9 @@ footer {
 			div.footer-col {
 				width: 20%;
 				padding: 0 15px;
+				&.alt {
+					width: 25%;
+				}
 				.social-links a {
 					display: inline-block;
 					height: 40px;
@@ -222,6 +225,7 @@ footer {
 						color: #ffffff;
 						display: block;
 						transition: all 0.3s ease;
+						cursor: pointer;
 						&:hover {
 							color: #ffffff;
 							padding-left: 8px;

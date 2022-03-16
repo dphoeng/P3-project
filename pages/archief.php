@@ -115,7 +115,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 
 
 <body>
-	<?php include("./navbar.php"); ?>
+	<?php include("./navbarAlt.php"); ?>
 	<main>
 		<div>
 			<label>Alleen mijn artikelen laten zien</label>
@@ -206,10 +206,10 @@ while ($record = mysqli_fetch_assoc($result)) {
 			</ul>
 		</div>
 	</main>
-	<?php include("./footer.php"); ?>
+	<?php include("./footerAlt.php"); ?>
 
 </body>
 <script src="../src/js/archief.js"></script>
-
+<script src="../src/js/nav.js"></script>
 
 </html>
