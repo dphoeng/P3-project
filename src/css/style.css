@@ -249,7 +249,7 @@ footer div.container div.row div.footer-col.logo img {
 }
 
 /*responsive*/
-@media (max-width: 767px) {
+@media (max-width: 992px) {
   main div.container div.card {
     margin: 2rem 0;
     padding: 0.5rem;
