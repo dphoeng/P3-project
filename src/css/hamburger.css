@@ -21,10 +21,9 @@
     margin: 3rem 0;
   }
   header nav div.menu ul li a {
-    font-size: xx-large;
+    font-size: large;
     letter-spacing: 5px;
     color: black;
-    transition: 0.8s;
   }
   header nav div.menu ul li a:hover {
     color: whitesmoke;
@@ -38,6 +37,12 @@
   }
   header nav div.mobile-hamburger button {
     z-index: 5;
+  }
+}
+@media only screen and (max-width: 400px) {
+  header nav ul li a {
+    font-size: large;
+    letter-spacing: 5px;
   }
 }
 

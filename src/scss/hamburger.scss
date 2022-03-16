@@ -22,10 +22,9 @@ $navbar-height: 16vh;
                     li {
                         margin: 3rem 0;
                         a {
-							font-size: xx-large;
+							font-size: large;
                             letter-spacing: 5px;
                             color: black;
-                            transition: 0.8s;
                             &:hover {
                                 color: whitesmoke;
                                 transition: 0.5s;
@@ -41,6 +40,21 @@ $navbar-height: 16vh;
                 padding: 4rem;
                 button {
                     z-index: 5;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    header {
+        nav {
+            ul {
+                li {
+                    a {
+                        font-size: large;
+                        letter-spacing: 5px;
+                    }
                 }
             }
         }
