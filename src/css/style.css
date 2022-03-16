@@ -28,6 +28,7 @@ nav {
 }
 nav div.logo img {
   height: 16vh;
+  padding-left: 2rem;
 }
 nav div.mobile-hamburger {
   display: none;
