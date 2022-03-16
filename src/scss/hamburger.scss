@@ -39,7 +39,7 @@ $navbar-height: 16vh;
                 align-items: flex-start;
                 justify-content: center;
                 position: absolute;
-                height: calc(100vh - 10vh);
+                height: calc(100vh - $navbar-height);
                 top: $navbar-height;
                 background-color: lightgray;
                 left: -200%;
