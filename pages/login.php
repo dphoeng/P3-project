@@ -4,30 +4,10 @@
     <meta charset="UTF-8">
     <title>Login Sytem!</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../src/css/style.css">
 </head>
 <body>
-<header>
-    <nav>
-        <div class="logo">
-            <h1><a href="index.php"></a>ES.Excido</h1>
-        </div>
-        <ul class="nav-links">
-            <li><a href="../index.php">Home</a></li>
-         <?php
-            if (isset($_SESSION["userid"])) {
-                echo "<li><a href='./pages/logout.php'>Logout</a></li>";
-            }
-            if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 1)
-                 echo "<li><a href='dashboard.php'>Dashboard</a></li>";
-            else {
-                echo "<li><a href='./signup.php'>Sign up</a></li>";
-                echo "<li><a href='#'>Log in</a></li>";
-            }
-         ?>
-        </ul>
-    </nav>
-</header>
+<?php include("./navbarAlt.php");?>
 <section>
 <div class="contact-content" id="signup-contact">
             <div class="contact-form-container">

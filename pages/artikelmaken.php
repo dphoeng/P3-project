@@ -9,6 +9,8 @@ if (!isset($_SESSION["userid"]))
 
 
 ?>
+<link rel="stylesheet" href="../src/css/style.css">
+<?php include("./navbarAlt.php");?>
 
 <form class="contact-form" action="../includes/artikelmaken.inc.php" method="post" enctype="multipart/form-data">
     <h3>Titel</h3>

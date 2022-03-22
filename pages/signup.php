@@ -7,30 +7,14 @@ include_once '../includes/functions.inc.php';
 <head>
     <meta charset="UTF-8">
     <title>Login Sytem!</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../src/css/style.css">
     <link rel="stylesheet" href="../css/grid.css">
 
 </head>
 <body>
-<nav>
-        <div class="logo">
-            <h1><a href="index.html"></a>ES.Excido</h1>
-        </div>
-        <ul class="nav-links">
-            <li><a href="../index.php">Home</a></li>
-            <?php
-            if (isset($_SESSION["userid"])) {
-                echo "<li><a href='./pages/logout.php'>Logout</a></li>";
-            }
-            if (isset($_SESSION["userRole"]) && $_SESSION["userRole"] == 1)
-                 echo "<li><a href='dashboard.php'>Dashboard</a></li>";
-            else {
-                echo "<li><a href='./signup.php'>Sign up</a></li>";
-                echo "<li><a href='#'>Log in</a></li>";
-            }
-         ?>
-        </ul>
-    </nav>
+
+<?php include("./navbarAlt.php");?>
+
     <div class="contact-content" id="signup-contact">
             <div class="contact-form-container">
                 <h1>Sign Up</h1>
