@@ -1,9 +1,9 @@
 <header>
     <nav>
         <div class="logo">
-            <a href="./index.php"><img src="../src/img/dagblad_algemeen.png" alt=""></a>
+            <a href="../index.php"><img src="../src/img/dagblad_algemeen.png" alt=""></a>
         </div>
-        <div class="menu">
+        <div class="menu alt">
             <ul>
                 <?php
                 if (isset($_SESSION["userid"])) {
