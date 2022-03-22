@@ -44,6 +44,9 @@ $navbar-height: 16vh;
                 background-color: lightgray;
                 left: -200%;
                 transition: left .8s cubic-bezier(0, 0, 0.02, 1.03);
+				&.alt {
+					justify-content: center;
+				}
                 &.is-active {
                     left: 0;
                     transition: left .8s cubic-bezier(0, 0, 0.02, 1.03);

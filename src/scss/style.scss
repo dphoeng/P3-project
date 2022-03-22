@@ -44,6 +44,9 @@ nav {
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
+		&.alt {
+			justify-content: flex-end;
+		}
 		ul {
 			display: flex;
 			letter-spacing: 3px;

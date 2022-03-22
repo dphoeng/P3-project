@@ -38,6 +38,9 @@ nav div.menu {
   justify-content: space-between;
   width: 100%;
 }
+nav div.menu.alt {
+  justify-content: flex-end;
+}
 nav div.menu ul {
   display: flex;
   letter-spacing: 3px;
