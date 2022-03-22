@@ -19,7 +19,7 @@ if (isset($_POST["submit"])) {
 
   // Left inputs empty
   // We set the functions "!== false" since "=== true" has a risk of giving us the wrong outcome
-  if (emptyInputSignup($voornaam, $tussenvoegsel, $achternaam, $email, $username, $pwd, $pwdRepeat) !== false) {
+  if (emptyInputSignup($voornaam, $achternaam, $email, $username, $pwd, $pwdRepeat) !== false) {
     header("location: ../pages/signup.php?error=emptyinput");
 		exit();
   }

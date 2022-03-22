@@ -1,8 +1,8 @@
 <?php
 
 // Check for empty input signup
-function emptyInputSignup($voornaam, $tussenvoegsel, $achternaam, $email, $username, $pwd, $pwdRepeat) {
-	if (empty($voornaam) || empty($tussenvoegsel) || empty($achternaam) || empty($email) || empty($username) || empty($pwd) || empty($pwdRepeat)) {
+function emptyInputSignup($voornaam, $achternaam, $email, $username, $pwd, $pwdRepeat) {
+	if (empty($voornaam) || empty($achternaam) || empty($email) || empty($username) || empty($pwd) || empty($pwdRepeat)) {
 		$result = true;
 	}
 	else {
