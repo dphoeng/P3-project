@@ -19,7 +19,7 @@ if (!isset($_GET["showOnly"])) {
 	$showOnly = 0;
 }
 
-$sql = "SELECT * FROM artikelen ".$idCheck;
+$sql = "SELECT * FROM artikelen " . $idCheck;
 
 $result = mysqli_query($conn, $sql);
 
@@ -35,17 +35,15 @@ if (isset($_GET["page"])) {
 
 $start = ($page - 1) * $per_page;
 
-if ($page < 5 || $pages <= 7)
-{
+if ($page < 5 || $pages <= 7) {
 	$paginationStart = 1;
-} else if ($page + 4 > $pages)
-{
-	$paginationStart = $pages-4;
+} else if ($page + 4 > $pages) {
+	$paginationStart = $pages - 4;
 } else {
-	$paginationStart = $page-1;
+	$paginationStart = $page - 1;
 }
 
-$sql = "SELECT * FROM artikelen ".$idCheck." ORDER BY datum desc LIMIT $start, $per_page";
+$sql = "SELECT * FROM artikelen " . $idCheck . " ORDER BY datum desc LIMIT $start, $per_page";
 $result = mysqli_query($conn, $sql);
 
 $sql = "SELECT * FROM users WHERE usersId = {$_SESSION['userid']}";
@@ -106,104 +104,109 @@ while ($record = mysqli_fetch_assoc($result)) {
 	<!-- <link rel="stylesheet" href="src/css/grid.css"> -->
 	<link rel="stylesheet" href="../src/css/hamburger.css">
 	<link rel="stylesheet" href="../src/css/hamburger.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 </head>
-
-
-
-
-
 
 <body>
 	<?php include("./navbarAlt.php"); ?>
 	<main>
-		<div>
-			<label>Alleen mijn artikelen laten zien</label>
-			<input type="checkbox" id="showOnly" <?php if ($showOnly) { echo "checked"; } ?>>
-			<p>Logged in as <?php echo $currentName; ?></p>
-			<a href="./artikelmaken.php">Artikel maken</a>
-		</div>
-
-		<table>
-			<thead>
-				<tr>
-					<th></th>
-					<th>Artikel</th>
-					<th>Text</th>
-					<th>Datum</th>
-					<th>Editor</th>
-					<th>Cat.</th>
-					<th>Ed.</th>
-					<th>Del.</th>
-					<th>Add</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php echo $rows; ?>
-			</tbody>
-		</table>
-		<div class="pagination">
-			<ul>
-				<li>
-					<a href="archief.php?showOnly=<?php echo $showOnly; ?>&page=<?php if ($page > 1) {
-													echo $page - 1;
-												} else {
-													echo $page;
-												} ?>" aria-label="Previous">
-						<span aria-hidden="true">&lsaquo;</span>
-					</a>
-				</li>
-				<?php if ($pages <= 7) {
+		<div class="container archief">
+			<div class="test">
+				<div>
+					<label>Alleen mijn artikelen laten zien</label>
+					<input type="checkbox" id="showOnly" <?php if ($showOnly) {
+																echo "checked";
+															} ?>>
+				</div>
+				<div>
+					<p>Logged in as <?php echo $currentName; ?></p>
+				</div>
+				<div>
+					<a href="./artikelmaken.php">Artikel maken</a>
+				</div>
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>Artikel</th>
+						<th>Text</th>
+						<th>Datum</th>
+						<th>Editor</th>
+						<th>Cat.</th>
+						<th>Ed.</th>
+						<th>Del.</th>
+						<th>Add</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php echo $rows; ?>
+				</tbody>
+			</table>
+			<div class="pagination">
+				<ul>
+					<li>
+						<a href="archief.php?showOnly=<?php echo $showOnly; ?>&page=<?php if ($page > 1) {
+																						echo $page - 1;
+																					} else {
+																						echo $page;
+																					} ?>" aria-label="Previous">
+							<span aria-hidden="true">&lsaquo;</span>
+						</a>
+					</li>
+					<?php if ($pages <= 7) {
 						for ($i = $paginationStart; $i <= $pages; $i++) {
 							if ($page == $i) {
-								echo "<li class='current-page'><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
+								echo "<li class='current-page'><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
 							} else {
-								echo "<li><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
+								echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
 							}
 						}
 					} else if ($page < 5) {
 						for ($i = $paginationStart; $i < $paginationStart + 5 && $i <= $pages; $i++) {
 							if ($page == $i) {
-								echo "<li class='current-page'><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
+								echo "<li class='current-page'><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
 							} else {
-								echo "<li><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
+								echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
 							}
 						}
 						echo "<li>...</li>";
-						echo "<li><a href='archief.php?showOnly=".$showOnly."&page=" . $pages . "'>" . $pages . "</a></li>";
+						echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=" . $pages . "'>" . $pages . "</a></li>";
 					} else {
-						echo "<li><a href='archief.php?showOnly=".$showOnly."&page=1'>1</a></li>";
+						echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=1'>1</a></li>";
 						echo "<li>...</li>";
 						if ($page + 4 > $pages) {
 							for ($i = $paginationStart; $i <= $pages; $i++) {
 								if ($page == $i) {
-									echo "<li class='current-page'><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
+									echo "<li class='current-page'><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
 								} else {
-									echo "<li><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
+									echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
 								}
 							}
 						} else {
 							for ($i = $paginationStart; $i < $paginationStart + 3; $i++) {
 								if ($page == $i) {
-									echo "<li class='current-page'><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
+									echo "<li class='current-page'><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
 								} else {
-									echo "<li><a href='archief.php?showOnly=".$showOnly."&page=" . $i . "'>" . $i . "</a></li>";
+									echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
 								}
 							}
 							echo "<li>...</li>";
-							echo "<li><a href='archief.php?showOnly=".$showOnly."&page=".$pages."'>".$pages."</a></li>";
+							echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=" . $pages . "'>" . $pages . "</a></li>";
 						}
-					}?>
-				<li>
-					<a href="archief.php?showOnly=<?php echo $showOnly; ?>&page=<?php if ($page < $pages) {
-													echo $page + 1;
-												} else {
-													echo $page;
-												} ?>" aria-label="Next">
-						<span aria-hidden="true">&rsaquo;</span>
-					</a>
-				</li>
-			</ul>
+					} ?>
+					<li>
+						<a href="archief.php?showOnly=<?php echo $showOnly; ?>&page=<?php if ($page < $pages) {
+																						echo $page + 1;
+																					} else {
+																						echo $page;
+																					} ?>" aria-label="Next">
+							<span aria-hidden="true">&rsaquo;</span>
+						</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</main>
 	<?php include("./footerAlt.php"); ?>
