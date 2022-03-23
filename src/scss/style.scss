@@ -95,19 +95,83 @@ main {
 
 	div.container {
 		display: flex;
-		&.archief {
+		div.archief {
+			display: flex;
 			flex-direction: column;
 			align-items: center;
-			padding: 2rem 0;
-			div.test {
-				width: 100vw;
+			margin: 2rem auto;
+			width: 80vw;
+			row-gap: 1rem;
+			> div {
+				width: 100%;
 				display: flex;
+				justify-content: center;
+			}
+			div.table-top {
 				flex-direction: row;
+				justify-content: space-between;
 				> div {
 					display: flex;
-					padding: 0 1rem;
-					p {
-						margin: 0;
+					align-items: center;
+					> a {
+						> i {
+							color: $card-color;
+							font-size: 2rem;
+						}
+					}
+				}
+			}
+			div.table {
+				border-radius: 0.25rem;
+				background-color: $card-color;
+				padding: 1rem;
+				table {
+					width: 100%;
+					border-collapse: collapse;
+					tbody {
+						tr {
+							background-color: #ac79bb;
+							border-top: .6rem solid $card-color;
+							td {
+								height: 10vh;
+								border-left: .3rem solid #ac79bb; 
+								border-right: .3rem solid #ac79bb; 
+								img {
+									overflow: hidden;
+									object-fit: cover;
+									padding: 0;
+									margin: 0;
+									height: 100%;
+									width: 100%;
+								}
+							}
+						}
+					}
+				}
+			}
+			div.pagination {
+				ul {
+					display: flex;
+					li {
+						list-style: none;
+						&.current-page {
+							a {
+								border: 1px solid black;
+								background-color: rgb(72, 68, 90);
+								color: white;
+							}
+						}
+						a {
+							color: black;
+							margin: .3rem;
+							padding: 1rem;
+							text-decoration: none;
+							border-radius: 3px;
+							&:active {
+								color: black;
+								margin: .5rem 0 0 0;
+							}
+						}
 					}
 				}
 			}
@@ -167,33 +231,6 @@ main {
 				> div.article-text {
 					width: calc(60% - .5rem);
 					p {
-						margin: .5rem 0 0 0;
-					}
-				}
-			}
-		}
-	}
-	div.pagination {
-		display: flex;
-		ul {
-			display: flex;
-			li {
-				list-style: none;
-				&.current-page {
-					a {
-						border: 1px solid black;
-						background-color: rgb(72, 68, 90);
-						color: white;
-					}
-				}
-				a {
-					color: black;
-					margin: .3rem;
-					padding: 1rem;
-					text-decoration: none;
-					border-radius: 3px;
-					&:active {
-						color: black;
 						margin: .5rem 0 0 0;
 					}
 				}

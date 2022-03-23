@@ -85,22 +85,78 @@ main *.row > .col {
 main div.container {
   display: flex;
 }
-main div.container.archief {
+main div.container div.archief {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem 0;
+  margin: 2rem auto;
+  width: 80vw;
+  row-gap: 1rem;
 }
-main div.container.archief div.test {
-  width: 100vw;
+main div.container div.archief > div {
+  width: 100%;
   display: flex;
+  justify-content: center;
+}
+main div.container div.archief div.table-top {
   flex-direction: row;
+  justify-content: space-between;
 }
-main div.container.archief div.test > div {
+main div.container div.archief div.table-top > div {
   display: flex;
-  padding: 0 1rem;
+  align-items: center;
 }
-main div.container.archief div.test > div p {
+main div.container div.archief div.table-top > div > a > i {
+  color: #E6B3F5;
+  font-size: 2rem;
+}
+main div.container div.archief div.table {
+  border-radius: 0.25rem;
+  background-color: #E6B3F5;
+  padding: 1rem;
+}
+main div.container div.archief div.table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+main div.container div.archief div.table table tbody tr {
+  background-color: #ac79bb;
+  border-top: 0.6rem solid #E6B3F5;
+}
+main div.container div.archief div.table table tbody tr td {
+  height: 10vh;
+  border-left: 0.3rem solid #ac79bb;
+  border-right: 0.3rem solid #ac79bb;
+}
+main div.container div.archief div.table table tbody tr td img {
+  overflow: hidden;
+  object-fit: cover;
+  padding: 0;
   margin: 0;
+  height: 100%;
+  width: 100%;
+}
+main div.container div.archief div.pagination ul {
+  display: flex;
+}
+main div.container div.archief div.pagination ul li {
+  list-style: none;
+}
+main div.container div.archief div.pagination ul li.current-page a {
+  border: 1px solid black;
+  background-color: #48445a;
+  color: white;
+}
+main div.container div.archief div.pagination ul li a {
+  color: black;
+  margin: 0.3rem;
+  padding: 1rem;
+  text-decoration: none;
+  border-radius: 3px;
+}
+main div.container div.archief div.pagination ul li a:active {
+  color: black;
+  margin: 0.5rem 0 0 0;
 }
 main div.card {
   height: 75vh;
@@ -161,31 +217,6 @@ main div.card div.side-articles > div.row > div.article-text {
   width: calc(60% - 0.5rem);
 }
 main div.card div.side-articles > div.row > div.article-text p {
-  margin: 0.5rem 0 0 0;
-}
-main div.pagination {
-  display: flex;
-}
-main div.pagination ul {
-  display: flex;
-}
-main div.pagination ul li {
-  list-style: none;
-}
-main div.pagination ul li.current-page a {
-  border: 1px solid black;
-  background-color: #48445a;
-  color: white;
-}
-main div.pagination ul li a {
-  color: black;
-  margin: 0.3rem;
-  padding: 1rem;
-  text-decoration: none;
-  border-radius: 3px;
-}
-main div.pagination ul li a:active {
-  color: black;
   margin: 0.5rem 0 0 0;
 }
 

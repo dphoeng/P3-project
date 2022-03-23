@@ -12,6 +12,7 @@ if (!isset($_SESSION["userid"]))
 <link rel="stylesheet" href="../src/css/style.css">
 <?php include("./navbarAlt.php");?>
 
+<main>
 <form class="contact-form" action="../includes/artikelmaken.inc.php" method="post" enctype="multipart/form-data">
     <h3>Titel</h3>
     <input type="text" name="titel" placeholder="Titel" maxlength=50 required>
@@ -27,3 +28,4 @@ if (!isset($_SESSION["userid"]))
     <input type="file" name="file" id="file" required>
     <button type="submit" name="submit">Publiceren</button>
 </form>
+</main>
