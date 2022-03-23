@@ -1,8 +1,13 @@
 <?php
 
 session_start();
-if (!isset($_SESSION["userid"]))
-{
+// check if authenticated to visit page
+if (isset($_SESSION["userid"])) {
+	if ($_SESSION["userRole"] < 1) {
+		header("Location: ../index.php");
+		exit();
+	}
+} else {
 	header("Location: ../index.php");
 	exit();
 }

@@ -13,6 +13,12 @@ $artikelId = $_GET["artikelId"];
 $sql = "SELECT * FROM artikelen WHERE artikelId = {$artikelId}";
 $result = mysqli_query($conn, $sql);
 $record = mysqli_fetch_assoc($result);
+
+if ($record['usersId'] != $_SESSION['userid'] && $_SESSION['userRole'] < 2) {
+	header("Location: ../index.php");
+	exit();
+}
+
 ?>
 
 <form class="contact-form" action="../includes/artikelupdaten.inc.php?artikelId=<?php echo $artikelId; ?>" method="post" enctype="multipart/form-data">
