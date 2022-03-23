@@ -300,11 +300,11 @@ footer div.container div.row div.footer-col.logo {
   align-items: center;
 }
 footer div.container div.row div.footer-col.logo img {
-  height: 24vh;
+  height: 16vh;
 }
 
 /*responsive*/
-@media (max-width: 992px) {
+@media (max-width: 992px) and (min-width: 574.02px) {
   main div.container div.card {
     margin: 2rem 0;
     padding: 0.5rem;
@@ -329,6 +329,9 @@ footer div.container div.row div.footer-col.logo img {
   footer div.container div.row div.footer-col {
     width: 50%;
     margin-bottom: 30px;
+  }
+  footer div.container div.row div.footer-col.alt {
+    width: 50%;
   }
 }
 @media (max-width: 574px) {
