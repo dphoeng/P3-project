@@ -24,7 +24,7 @@
 			<div class="footer-col alt">
 				<h4>Contact</h4>
 				<ul>
-					<li><a href="#">Daltonlaan 300</a></li>
+					<li><a href="https://www.google.com/maps/place/Daltonlaan+300,+3584+BK+Utrecht/@52.0871365,5.1584627,17z/data=!3m1!4b1!4m5!3m4!1s0x47c668a2918b16e9:0x95fac93d2c242c97!8m2!3d52.0871365!4d5.1606514">Daltonlaan 300</a></li>
 					<li><a href="#">035123456636</a></li>
 					<li><a href="#">dagbladalgemeen@gmail.com</a></li>
 					<li><a href="#">©️copyright-Andrej/Philip/Daniël</a></li>
