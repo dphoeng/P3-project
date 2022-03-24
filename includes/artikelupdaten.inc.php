@@ -32,7 +32,6 @@ if (isset($_POST["submit"])) {
 			break;
 	}
 
-	$userid = $_SESSION["userid"];
 	$datum = date("Y-m-d H:i:s");
 
 	$sql = 'SELECT imageLocation FROM artikelen WHERE artikelId = (SELECT max(artikelId) FROM artikelen)';

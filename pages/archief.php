@@ -13,7 +13,6 @@ if (isset($_SESSION["userid"])) {
 	header("Location: ../index.php");
 	exit();
 }
-
 // if showOnly is checked, sql statements will have the user id as added condition, else empty
 $idCheck = "";
 
@@ -69,11 +68,18 @@ $rows = "";
 
 // loop through current page's sql result
 while ($record = mysqli_fetch_assoc($result)) {
-	// retrieve information of the current article's editor
-	$sqlUser = "SELECT * FROM users WHERE usersId = {$record['usersId']}";
-	$resultUser = mysqli_query($conn, $sqlUser);
-	$recordUser = mysqli_fetch_assoc($resultUser);
-	$name = $recordUser['usersFirstName'] . " " . $recordUser['usersMiddleName'] . " " . $recordUser['usersLastName'];
+	// retrieve information of the current article's editor, if user is deleted, $name becomes be "[deleted]"
+	// hasRights determines whether the currently logged in user has rights to edit or delete articles
+	if (!$record['usersId']) {
+		$name = "[deleted]";
+		$hasRights = $_SESSION["userRole"] > 1;
+	} else {
+		$sqlUser = "SELECT * FROM users WHERE usersId = {$record['usersId']}";
+		$resultUser = mysqli_query($conn, $sqlUser);
+		$recordUser = mysqli_fetch_assoc($resultUser);
+		$name = $recordUser['usersFirstName'] . " " . $recordUser['usersMiddleName'] . " " . $recordUser['usersLastName'];
+		$hasRights = $_SESSION["userRole"] > 1 || $_SESSION["userid"] == $recordUser["usersId"];
+	}
 
 	switch ($record['categorie']) {
 		case 0:
@@ -94,9 +100,8 @@ while ($record = mysqli_fetch_assoc($result)) {
 	}
 
 	// check permission for deletion/edit rights
-	$hasRights = $_SESSION["userRole"] > 1 || $_SESSION["userid"] == $recordUser["usersId"];
-	$rights = $hasRights ? "<td width='3%'><a href='./update.php?artikelId={$record['artikelId']}'><i class='bx bx-edit-alt'></i></i></a></td>
-							<td width='3%'><a href='./delete.php?artikelId={$record['artikelId']}'><i class='bx bx-trash'></i></i></a></td>" : "<td width='3%'></td><td width='3%'></td>";
+	$rights = $hasRights ? "<td width='3%'><a href='./update.php?artikelId={$record['artikelId']}'><i class='bx bx-edit-alt'></i></a></td>
+							<td width='3%'><a onClick='confirmPopup(\"./delete.php?artikelId={$record['artikelId']}\",\"Are you sure you want to delete this article?\")'><i class='bx bx-trash'></i></a></td>" : "<td width='3%'></td><td width='3%'></td>";
 
 	$rows .= "<tr>
 					<td width='12%'><img src='.{$record['imageLocation']}' alt=''></td>
@@ -236,5 +241,6 @@ while ($record = mysqli_fetch_assoc($result)) {
 </body>
 <script src="../src/js/archief.js"></script>
 <script src="../src/js/nav.js"></script>
+<script src="../src/js/include.js"></script>
 
 </html>

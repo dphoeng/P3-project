@@ -5,7 +5,7 @@ include './mysql.php';
 
 // check if authenticated to visit page
 if (isset($_SESSION["userid"])) {
-	if ($_SESSION["userRole"] < 1) {
+	if ($_SESSION["userRole"] < 2) {
 		header("Location: ../index.php");
 		exit();
 	}
@@ -14,19 +14,7 @@ if (isset($_SESSION["userid"])) {
 	exit();
 }
 
-// if showOnly is checked, sql statements will have the user id as added condition, else empty
-$idCheck = "";
-
-if (!isset($_GET["showOnly"])) {
-	$showOnly = 0;
-} else if ($_GET["showOnly"]) {
-	$showOnly = 1;
-	$idCheck = "WHERE usersId = {$_SESSION['userid']}";
-} else {
-	$showOnly = 0;
-}
-
-$sql = "SELECT * FROM artikelen " . $idCheck;
+$sql = "SELECT * FROM users";
 
 $result = mysqli_query($conn, $sql);
 
@@ -55,8 +43,8 @@ if ($page < 5 || $pages <= 7) {
 	$paginationStart = $page - 1;
 }
 
-// get current page's articles
-$sql = "SELECT * FROM artikelen " . $idCheck . " ORDER BY datum desc LIMIT $start, $per_page";
+// get current page's users
+$sql = "SELECT * FROM users ORDER BY usersId asc LIMIT $start, $per_page";
 $result = mysqli_query($conn, $sql);
 
 // saves logged in user's information for later use
@@ -69,45 +57,36 @@ $rows = "";
 
 // loop through current page's sql result
 while ($record = mysqli_fetch_assoc($result)) {
-	// retrieve information of the current article's editor
-	$sqlUser = "SELECT * FROM users WHERE usersId = {$record['usersId']}";
-	$resultUser = mysqli_query($conn, $sqlUser);
-	$recordUser = mysqli_fetch_assoc($resultUser);
-	$name = $recordUser['usersFirstName'] . " " . $recordUser['usersMiddleName'] . " " . $recordUser['usersLastName'];
-
-	switch ($record['categorie']) {
+	// TODO: add table rows and columns for information
+	$visitor = "";
+	$editor = "";
+	$admin = "";
+	switch ($record['role']) {
 		case 0:
-			$categorieText = "Sport";
+			$visitor = "selected";
 			break;
-
+		
 		case 1:
-			$categorieText = "Politiek";
+			$editor = "selected";
 			break;
-
+		
 		case 2:
-			$categorieText = "Economie";
-			break;
-
-		case 3:
-			$categorieText = "Tech";
+			$admin = "selected";
 			break;
 	}
 
-	// check permission for deletion/edit rights
-	$hasRights = $_SESSION["userRole"] > 1 || $_SESSION["userid"] == $recordUser["usersId"];
-	$rights = $hasRights ? "<td width='3%'><a href='./update.php?artikelId={$record['artikelId']}'><i class='bx bx-edit-alt'></i></i></a></td>
-							<td width='3%'><a href='./delete.php?artikelId={$record['artikelId']}'><i class='bx bx-trash'></i></i></a></td>" : "<td width='3%'></td><td width='3%'></td>";
-
 	$rows .= "<tr>
-					<td width='12%'><img src='.{$record['imageLocation']}' alt=''></td>
-					<td width='10%'>{$record['titel']}</td>
-					<td width='28%'>{$record['text']}</td>
-					<td width='17%'>{$record['datum']}</td>
-					<td width='17%'>{$name}</td>
-					<td width='7%'>{$categorieText}</td>
-					" . $rights . "
-					<td width='3%'>TBA</td>
-				</tr>";
+				<td width='5%'>{$record['usersId']}</td>
+				<td width='40%'>{$record['usersFirstName']} {$record['usersMiddleName']} {$record['usersLastName']}</td>
+				<td width='35%'>{$record['usersEmail']}</td>
+				<td width='15%'><form id='updateRole{$record['usersId']}' action='../includes/updaterole.inc.php?id={$record['usersId']}' method='post'><select name='keuzeveld'>
+									<option value='visitor' " . $visitor . ">Visitor</option>
+									<option value='editor' ". $editor .">Editor</option>
+									<option value='admin' ". $admin .">Admin</option>
+								</select><a onclick='submit({$record['usersId']})'><i class='bx bxs-save'></a></i></td>
+								</form>
+				<td width='5%'><a onClick='confirmPopup(\"../includes/deleteuser.inc.php?id={$record['usersId']}\",\"Are you sure you want to delete this user?\")'><i class='bx bx-trash'></i></a></td>
+			</tr>";
 }
 
 ?>
@@ -132,32 +111,18 @@ while ($record = mysqli_fetch_assoc($result)) {
 			<div class="archief">
 				<div class="table-top">
 					<div>
-						<label>Alleen mijn artikelen laten zien</label>
-						<input type="checkbox" id="showOnly" <?php if ($showOnly) {
-																	echo "checked";
-																} ?>>
-					</div>
-					<div>
 						<label>Logged in as <?php echo $currentName; ?></label>
-					</div>
-					<div>
-						<label>Artikel maken</label>
-						<a href="./artikelmaken.php"><i class='bx bx-plus'></i></a>
 					</div>
 				</div>
 				<div class="table">
 					<table>
 						<thead>
 							<tr>
-								<th></th>
-								<th>Artikel</th>
-								<th>Text</th>
-								<th>Datum</th>
-								<th>Editor</th>
-								<th>Cat.</th>
-								<th>Ed.</th>
+								<th>ID</th>
+								<th>Naam</th>
+								<th>Email</th>
+								<th>Rol</th>
 								<th>Del.</th>
-								<th>Add</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -168,61 +133,61 @@ while ($record = mysqli_fetch_assoc($result)) {
 				<div class="pagination">
 					<ul>
 						<li>
-							<a href="archief.php?showOnly=<?php echo $showOnly; ?>&page=<?php if ($page > 1) {
-																							echo $page - 1;
-																						} else {
-																							echo $page;
-																						} ?>" aria-label="Previous">
+							<a href="dashboard.php?page=<?php if ($page > 1) {
+																echo $page - 1;
+															} else {
+																echo $page;
+															} ?>" aria-label="Previous">
 								<span aria-hidden="true">&lsaquo;</span>
 							</a>
 						</li>
 						<?php if ($pages <= 7) {
 							for ($i = $paginationStart; $i <= $pages; $i++) {
 								if ($page == $i) {
-									echo "<li class='current-page'><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
+									echo "<li class='current-page'><a href='dashboard.php?page=" . $i . "'>" . $i . "</a></li>";
 								} else {
-									echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
+									echo "<li><a href='dashboard.php?page=" . $i . "'>" . $i . "</a></li>";
 								}
 							}
 						} else if ($page < 5) {
 							for ($i = $paginationStart; $i < $paginationStart + 5 && $i <= $pages; $i++) {
 								if ($page == $i) {
-									echo "<li class='current-page'><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
+									echo "<li class='current-page'><a href='dashboard.php?page=" . $i . "'>" . $i . "</a></li>";
 								} else {
-									echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
+									echo "<li><a href='dashboard.php?page=" . $i . "'>" . $i . "</a></li>";
 								}
 							}
 							echo "<li>...</li>";
-							echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=" . $pages . "'>" . $pages . "</a></li>";
+							echo "<li><a href='dashboard.php?page=" . $pages . "'>" . $pages . "</a></li>";
 						} else {
-							echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=1'>1</a></li>";
+							echo "<li><a href='dashboard.php?page=1'>1</a></li>";
 							echo "<li>...</li>";
 							if ($page + 4 > $pages) {
 								for ($i = $paginationStart; $i <= $pages; $i++) {
 									if ($page == $i) {
-										echo "<li class='current-page'><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
+										echo "<li class='current-page'><a href='dashboard.php?page=" . $i . "'>" . $i . "</a></li>";
 									} else {
-										echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
+										echo "<li><a href='dashboard.php?page=" . $i . "'>" . $i . "</a></li>";
 									}
 								}
 							} else {
 								for ($i = $paginationStart; $i < $paginationStart + 3; $i++) {
 									if ($page == $i) {
-										echo "<li class='current-page'><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
+										echo "<li class='current-page'><a href='dashboard.php?page=" . $i . "'>" . $i . "</a></li>";
 									} else {
-										echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=" . $i . "'>" . $i . "</a></li>";
+										echo "<li><a href='dashboard.php?page=" . $i . "'>" . $i . "</a></li>";
 									}
 								}
 								echo "<li>...</li>";
-								echo "<li><a href='archief.php?showOnly=" . $showOnly . "&page=" . $pages . "'>" . $pages . "</a></li>";
+								echo "<li><a href='dashboard.php?page=" . $pages . "'>" . $pages . "</a></li>";
 							}
 						} ?>
 						<li>
-							<a href="archief.php?showOnly=<?php echo $showOnly; ?>&page=<?php if ($page < $pages) {
-																							echo $page + 1;
-																						} else {
-																							echo $page;
-																						} ?>" aria-label="Next">
+							<a href="dashboard.php?page=<?php if ($page < $pages) {
+																echo $page + 1;
+															} else {
+																echo $page;
+															} ?>" aria-label="Next">
 								<span aria-hidden="true">&rsaquo;</span>
 							</a>
 						</li>
@@ -236,5 +201,6 @@ while ($record = mysqli_fetch_assoc($result)) {
 </body>
 <script src="../src/js/archief.js"></script>
 <script src="../src/js/nav.js"></script>
+<script src="../src/js/include.js"></script>
 
 </html>

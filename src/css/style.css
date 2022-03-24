@@ -84,12 +84,13 @@ main *.row > .col {
 }
 main div.container {
   display: flex;
+  justify-content: center;
 }
 main div.container div.archief {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem auto;
+  margin: 3rem 0;
   width: 80vw;
   row-gap: 1rem;
 }
@@ -136,7 +137,16 @@ main div.container div.archief div.table table tbody tr td img {
   height: 100%;
   width: 100%;
 }
+main div.container div.archief div.table table tbody tr td a {
+  color: black;
+  cursor: pointer;
+}
+main div.container div.archief div.table table tbody tr td a:visited {
+  color: black;
+}
 main div.container div.archief div.pagination ul {
+  margin: 0;
+  padding-top: 2rem;
   display: flex;
 }
 main div.container div.archief div.pagination ul li {
@@ -153,10 +163,6 @@ main div.container div.archief div.pagination ul li a {
   padding: 1rem;
   text-decoration: none;
   border-radius: 3px;
-}
-main div.container div.archief div.pagination ul li a:active {
-  color: black;
-  margin: 0.5rem 0 0 0;
 }
 main div.container div.card {
   height: 75vh;
