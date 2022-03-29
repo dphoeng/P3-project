@@ -36,7 +36,7 @@ for ($x = 0; $x < 4; $x++) {
 
 
 <main>
-    <h1>Dagblad Algemeen</h1>
+    <h1 class="banner">Dagblad Algemeen</h1>
     <div class="container" id="sport">
         <div class="card">
             <h2>Sport</h2>

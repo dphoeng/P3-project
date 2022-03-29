@@ -22,7 +22,7 @@ if (isset($_SESSION["userid"])) {
 <body>
 
 <?php include("./navbarAlt.php");?>
-
+<main>
     <div class="contact-content" id="signup-contact">
             <div class="contact-form-container">
                 <h1>Sign Up</h1>
@@ -52,7 +52,7 @@ if (isset($_SESSION["userid"])) {
                   }
                 }
                 ?>
-                <a href="reset-password.php">Forgot your password</a>
+             
 
                 <?php
                     // Error messages
@@ -82,4 +82,5 @@ if (isset($_SESSION["userid"])) {
                   ?>
             </div>
         </div>
+        </main>
 </body>

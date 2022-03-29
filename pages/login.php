@@ -18,7 +18,9 @@ if (isset($_SESSION["userid"])) {
 </head>
 <body>
 <?php include("./navbarAlt.php");?>
+<main> 
 <section>
+           
 <div class="contact-content" id="signup-contact">
             <div class="contact-form-container">
                 <h1>Log In</h1>
@@ -44,3 +46,4 @@ if (isset($_SESSION["userid"])) {
         </div>
 
 </section>
+</main> 
