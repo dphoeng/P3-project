@@ -45,15 +45,15 @@ function pwdMatch($pwd, $pwdrepeat) {
 }
 
 // Check if username is in database, if so then return data
-function uidExists($conn, $username) {
-  $sql = "SELECT * FROM users WHERE usersUid = ? OR usersEmail = ?;";
+function checkIfExists($conn, $rowToCheck, $check) {
+  $sql = "SELECT * FROM users WHERE $rowToCheck = ?;";
 	$stmt = mysqli_stmt_init($conn);
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
 	 	header("location: ../pages/signup.php?error=stmtfailed");
 		exit();
 	}
 
-	mysqli_stmt_bind_param($stmt, "ss", $username, $username);
+	mysqli_stmt_bind_param($stmt, "s", $check);
 	mysqli_stmt_execute($stmt);
 
 	// "Get result" returns the results from a prepared statement
@@ -103,7 +103,7 @@ function emptyInputLogin($username, $pwd) {
 
 // Log user into website
 function loginUser($conn, $username, $pwd) {
-	$uidExists = uidExists($conn, $username);
+	$uidExists = checkIfExists($conn, "usersUid", $username);
 
 	if ($uidExists === false) {
 		header("location: ../pages/login.php?error=wronglogin");
