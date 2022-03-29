@@ -49,7 +49,8 @@ function checkIfExists($conn, $rowToCheck, $check) {
   $sql = "SELECT * FROM users WHERE $rowToCheck = ?;";
 	$stmt = mysqli_stmt_init($conn);
 	if (!mysqli_stmt_prepare($stmt, $sql)) {
-	 	header("location: ../pages/signup.php?error=stmtfailed");
+	 	//header("location: ../pages/signup.php?error=stmtfailed");
+		 var_dump($stmt, $rowToCheck);
 		exit();
 	}
 

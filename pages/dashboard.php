@@ -202,5 +202,6 @@ while ($record = mysqli_fetch_assoc($result)) {
 <script src="../src/js/archief.js"></script>
 <script src="../src/js/nav.js"></script>
 <script src="../src/js/include.js"></script>
+<script src="../src/js/submit.js"></script>
 
 </html>

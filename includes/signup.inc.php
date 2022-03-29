@@ -44,7 +44,7 @@ if (isset($_POST["submit"])) {
     exit();
   }
   // Is the email taken already
-  if (checkIfExists($conn, "email", $email) !== false) {
+  if (checkIfExists($conn, "usersEmail", $email) !== false) {
     header("location: ../pages/signup.php?error=emailtaken");
     exit();
   }
