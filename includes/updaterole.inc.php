@@ -14,15 +14,13 @@ if (isset($_SESSION["userid"])) {
 }
 
 // check if fields were filled in in case user came here without post
-if (!isset($_POST['keuzeveld']) || !isset($_GET['id']))
+if (!isset($_GET['id']) || !isset($_GET['role']))
 {
 	header("Location: ../index.php");
 	exit();
 }
 
-$id = $_GET['id'];
-
-switch ($_POST['keuzeveld']) {
+switch ($_GET['role']) {
 	case 'visitor':
 		$role = 0;
 		break;
@@ -42,7 +40,7 @@ switch ($_POST['keuzeveld']) {
 }
 
 $stmt = $conn->prepare("UPDATE users SET role = ? WHERE usersId = ?");
-$stmt->bind_param("ii", $role, $id);
+$stmt->bind_param("ii", $role, $_GET['id']);
 
 if ($stmt->execute()) {
 	header("Location: ../pages/dashboard.php");

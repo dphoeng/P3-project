@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   width: 100%;
   height: 100vh;
@@ -146,6 +147,55 @@ main div.container div.archief div.table table tbody tr td a {
 }
 main div.container div.archief div.table table tbody tr td a:visited {
   color: black;
+}
+main div.container div.archief div.table table tbody tr td a i {
+  vertical-align: middle;
+}
+main div.container div.archief div.table table tbody tr td div.role-select {
+  display: flex;
+}
+main div.container div.archief div.table table tbody tr td div.role-select div.dropdown {
+  display: flex;
+  width: 50%;
+  height: 1rem;
+  flex-direction: column;
+}
+main div.container div.archief div.table table tbody tr td div.role-select div.dropdown > div {
+  border: 1px solid black;
+}
+main div.container div.archief div.table table tbody tr td div.role-select div.dropdown div.default-select {
+  display: flex;
+  position: relative;
+  width: 100%;
+  background-color: #E6B3F5;
+}
+main div.container div.archief div.table table tbody tr td div.role-select div.dropdown div.default-select a {
+  cursor: default;
+}
+main div.container div.archief div.table table tbody tr td div.role-select div.dropdown div.default-select a::after {
+  content: "▼";
+  position: absolute;
+  right: 0;
+  padding: 0 0.2rem;
+  background-color: #afafaf;
+}
+main div.container div.archief div.table table tbody tr td div.role-select div.dropdown div.default-select:hover a::after {
+  background-color: #e4e4e4;
+}
+main div.container div.archief div.table table tbody tr td div.role-select div.dropdown div.options {
+  display: none;
+  flex-direction: column;
+  border-top: none;
+  width: 100%;
+}
+main div.container div.archief div.table table tbody tr td div.role-select div.dropdown div.options div.option {
+  background-color: #E6B3F5;
+}
+main div.container div.archief div.table table tbody tr td div.role-select div.dropdown div.options div.option:hover {
+  background-color: #1E90FF;
+}
+main div.container div.archief div.table table tbody tr td div.role-select > a {
+  padding-left: 0.5rem;
 }
 main div.container div.archief div.pagination ul {
   margin: 0;

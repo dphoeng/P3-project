@@ -58,20 +58,23 @@ $rows = "";
 // loop through current page's sql result
 while ($record = mysqli_fetch_assoc($result)) {
 	// TODO: add table rows and columns for information
-	$visitor = "";
-	$editor = "";
-	$admin = "";
+	$role = "";
+
 	switch ($record['role']) {
 		case 0:
-			$visitor = "selected";
+			$role = "Visitor";
 			break;
 		
 		case 1:
-			$editor = "selected";
+			$role = "Editor";
 			break;
 		
 		case 2:
-			$admin = "selected";
+			$role = "Admin";
+			break;
+		
+		default:
+			$role = "";
 			break;
 	}
 
@@ -79,12 +82,28 @@ while ($record = mysqli_fetch_assoc($result)) {
 				<td width='5%'>{$record['usersId']}</td>
 				<td width='40%'>{$record['usersFirstName']} {$record['usersMiddleName']} {$record['usersLastName']}</td>
 				<td width='35%'>{$record['usersEmail']}</td>
-				<td width='15%'><form id='updateRole{$record['usersId']}' action='../includes/updaterole.inc.php?id={$record['usersId']}' method='post'><select name='keuzeveld'>
-									<option value='visitor' " . $visitor . ">Visitor</option>
-									<option value='editor' ". $editor .">Editor</option>
-									<option value='admin' ". $admin .">Admin</option>
-								</select><a onclick='submit({$record['usersId']})'><i class='bx bxs-save'></a></i></td>
-								</form>
+				<td width='15%'><div class='role-select'>
+								<div class='dropdown' id='dropdownId{$record['usersId']}'>
+									<div class='default-select'>
+										<a>{$role}</a>
+									</div>
+									<div class='options'>
+										<div class='option' onclick=\"select('Visitor', 'dropdownId{$record['usersId']}')\">
+											<a>Visitor</a>
+										</div>
+										<div class='option' onclick=\"select('Editor', 'dropdownId{$record['usersId']}')\">
+											<a>Editor</a>
+										</div>
+										<div class='option' onclick=\"select('Admin', 'dropdownId{$record['usersId']}')\">
+											<a>Admin</a>
+										</div>
+									</div>
+								</div>
+								<a onclick='submit({$record['usersId']})'>
+									<i class='bx bxs-save'></i>
+								</a>
+								</div>
+							</td>
 				<td width='5%'><a onClick='confirmPopup(\"../includes/deleteuser.inc.php?id={$record['usersId']}\",\"Are you sure you want to delete this user?\")'><i class='bx bx-trash'></i></a></td>
 			</tr>";
 }
@@ -203,5 +222,6 @@ while ($record = mysqli_fetch_assoc($result)) {
 <script src="../src/js/nav.js"></script>
 <script src="../src/js/include.js"></script>
 <script src="../src/js/submit.js"></script>
+<script src="../src/js/dropdown_submit.js"></script>
 
 </html>

@@ -154,6 +154,58 @@ main {
 									&:visited {
 										color: black;
 									}
+									i {
+										vertical-align: middle;
+									}
+								}
+								div.role-select {
+									display: flex;
+									div.dropdown {
+										display: flex;
+										width: 50%;
+										height: 1rem;
+										flex-direction: column;
+										> div {
+											border: 1px solid black;
+										}
+										div.default-select {
+											display: flex;
+											position: relative;
+											width: 100%;
+											background-color: $card-color;
+											a {
+												cursor: default;
+												&::after {
+													content: "▼";
+													position: absolute;
+													right: 0;
+													padding: 0 0.2rem;
+													background-color: rgb(175, 175, 175);
+												}
+											}
+											&:hover {
+												a::after {
+													background-color: rgb(228, 228, 228);
+												}
+											}
+										}
+										div.options {
+											display: none;
+											flex-direction: column;
+											border-top: none;
+											width: 100%;
+											div.option {
+												background-color: $card-color;
+												&:hover {
+													background-color: #1E90FF;
+												}
+									
+											}
+										}
+									}
+									> a {
+										padding-left: .5rem;
+									}								
 								}
 							}
 						}
