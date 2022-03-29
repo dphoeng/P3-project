@@ -1,17 +1,19 @@
 $navbar-height: 16vh;
 $navfoot-color: #A59BE0;
 $card-color: #E6B3F5;
-$banner-color: whitesmoke;
+$banner-color: #EB88A5;
 
 
 body {
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
 	font-size: 18px;
 	font-family: "Roboto", sans-serif;
+	display: flex;
+	flex-direction: column;
 }
 
 body * {
@@ -76,6 +78,7 @@ main {
 		background-color: $banner-color;
 		text-align: center;
 		color: white;
+		margin: 0;
 	}
 	margin-top: $navbar-height;
 
@@ -213,6 +216,8 @@ main {
 					bottom: 0;
 					padding: 1rem;
 					font-size: 2rem;
+					width: 100%;
+					background-color: rgba(146, 146, 146, 0.4);
 				}
 				&:not(.logged-in) {
 					width: 100%;
@@ -246,7 +251,7 @@ main {
 }
 
 footer {
-	margin-top: 2rem;
+	margin-top: auto;
 	background-color: $navfoot-color;
 	padding: 2rem 0;
 	div.container {
