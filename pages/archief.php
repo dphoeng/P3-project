@@ -80,6 +80,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 		$name = $recordUser['usersFirstName'] . " " . $recordUser['usersMiddleName'] . " " . $recordUser['usersLastName'];
 		$hasRights = $_SESSION["userRole"] > 1 || $_SESSION["userid"] == $recordUser["usersId"];
 	}
+	$hasRightsMain = $_SESSION["userRole"] > 1;
 
 	switch ($record['categorie']) {
 		case 0:
@@ -102,6 +103,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 	// check permission for deletion/edit rights
 	$rights = $hasRights ? "<td width='3%'><a href='./update.php?artikelId={$record['artikelId']}'><i class='bx bx-edit-alt'></i></a></td>
 							<td width='3%'><a onClick='confirmPopup(\"./delete.php?artikelId={$record['artikelId']}\",\"Are you sure you want to delete this article?\")'><i class='bx bx-trash'></i></a></td>" : "<td width='3%'></td><td width='3%'></td>";
+	$rightsMain = $hasRightsMain ? "<td width='3%'><a><i class='bx bxs-add-to-queue'></i></a></td>" : "<td width='3%'></td><td width='3%'></td>";
 
 	$rows .= "<tr>
 					<td width='12%'><img src='.{$record['imageLocation']}' alt=''></td>
@@ -110,8 +112,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 					<td width='17%'>{$record['datum']}</td>
 					<td width='17%'>{$name}</td>
 					<td width='7%'>{$categorieText}</td>
-					" . $rights . "
-					<td width='3%'>TBA</td>
+					" . $rights . $rightsMain . "
 				</tr>";
 }
 

@@ -163,8 +163,7 @@ main {
 									div.dropdown {
 										display: flex;
 										width: 50%;
-										height: 1rem;
-										flex-direction: column;
+										position: relative;
 										> div {
 											border: 1px solid black;
 										}
@@ -173,6 +172,7 @@ main {
 											position: relative;
 											width: 100%;
 											background-color: $card-color;
+											z-index: 0;
 											a {
 												cursor: default;
 												&::after {
@@ -194,10 +194,16 @@ main {
 											flex-direction: column;
 											border-top: none;
 											width: 100%;
+											z-index: 1;
+											position: absolute;
+											top: 100%;
 											div.option {
 												background-color: $card-color;
 												&:hover {
 													background-color: #1E90FF;
+													a {
+														color: white;
+													}
 												}
 									
 											}
