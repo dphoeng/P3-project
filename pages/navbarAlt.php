@@ -20,7 +20,6 @@
                 }
 
                 ?>
-                <li><a href='./debug.php'>Debug</a></li>
             </ul>
         </div>
         <div class="mobile-hamburger">

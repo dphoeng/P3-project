@@ -27,7 +27,6 @@
                 }
 
                 ?>
-                <li><a href='./pages/debug.php'>Debug</a></li>
             </ul>
         </div>
         <div class="mobile-hamburger">
