@@ -3,7 +3,7 @@
 for ($x = 0; $x < 4; $x++) {
     $titleArray = array();
     $imageArray = array();
-    $sql = 'SELECT * FROM artikelen WHERE categorie = ' . $x . ' ORDER BY datum DESC LIMIT 5';
+    $sql = 'SELECT * FROM artikelen WHERE sendToMain = 1 AND categorie = ' . $x . ' ORDER BY datum DESC LIMIT 5';
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

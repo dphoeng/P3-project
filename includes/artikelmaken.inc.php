@@ -73,7 +73,7 @@ if (isset($_POST["submit"])) {
 		echo "File is not an image.";
 	}
 
-	$stmt = $conn->prepare("INSERT INTO artikelen (artikelId, usersId, titel, text, datum, categorie, imageLocation) VALUES (NULL, ?, ?, ?, ?, ?, ?)");
+	$stmt = $conn->prepare("INSERT INTO artikelen (artikelId, usersId, titel, text, datum, categorie, imageLocation, sendToMain) VALUES (NULL, ?, ?, ?, ?, ?, ?, 0)");
 	$stmt->bind_param("isssis", $userid, $titel, $text, $datum, $categorie, $save_file);
 
 	if ($stmt->execute()) {

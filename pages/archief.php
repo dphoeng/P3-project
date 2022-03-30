@@ -13,6 +13,7 @@ if (isset($_SESSION["userid"])) {
 	header("Location: ../index.php");
 	exit();
 }
+
 // if showOnly is checked, sql statements will have the user id as added condition, else empty
 $idCheck = "";
 
@@ -100,10 +101,12 @@ while ($record = mysqli_fetch_assoc($result)) {
 			break;
 	}
 
-	// check permission for deletion/edit rights
+
+	// check permission for deletion/edit/add rights
+	$rightsAdd = $record['sendToMain'] ? "checked" : "";
 	$rights = $hasRights ? "<td width='3%'><a href='./update.php?artikelId={$record['artikelId']}'><i class='bx bx-edit-alt'></i></a></td>
 							<td width='3%'><a onClick='confirmPopup(\"./delete.php?artikelId={$record['artikelId']}\",\"Are you sure you want to delete this article?\")'><i class='bx bx-trash'></i></a></td>" : "<td width='3%'></td><td width='3%'></td>";
-	$rightsMain = $hasRightsMain ? "<td width='3%'><a><i class='bx bxs-add-to-queue'></i></a></td>" : "<td width='3%'></td><td width='3%'></td>";
+	$rightsMain = $hasRightsMain ? "<td width='3%'><input type='checkbox' class='addToMain' id='sendButton{$record['artikelId']}' {$rightsAdd}></td>" : "<td width='3%'></td><td width='3%'></td>";
 
 	$rows .= "<tr>
 					<td width='12%'><img src='.{$record['imageLocation']}' alt=''></td>

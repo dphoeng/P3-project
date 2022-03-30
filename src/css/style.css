@@ -151,6 +151,9 @@ main div.container div.archief div.table table tbody tr td a:visited {
 main div.container div.archief div.table table tbody tr td a i {
   vertical-align: middle;
 }
+main div.container div.archief div.table table tbody tr td input.addToMain {
+  vertical-align: middle;
+}
 main div.container div.archief div.table table tbody tr td div.role-select {
   display: flex;
 }
