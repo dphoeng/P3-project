@@ -80,9 +80,9 @@ while ($record = mysqli_fetch_assoc($result)) {
 
 	$rows .= "<tr>
 				<td width='5%'>{$record['usersId']}</td>
-				<td width='40%'>{$record['usersFirstName']} {$record['usersMiddleName']} {$record['usersLastName']}</td>
-				<td width='35%'>{$record['usersEmail']}</td>
-				<td width='15%'><div class='role-select'>
+				<td width='35%'>{$record['usersFirstName']} {$record['usersMiddleName']} {$record['usersLastName']}</td>
+				<td width='30%'>{$record['usersEmail']}</td>
+				<td width='25%'><div class='role-select'>
 								<div class='dropdown' id='dropdownId{$record['usersId']}'>
 									<div class='default-select'>
 										<a>{$role}</a>

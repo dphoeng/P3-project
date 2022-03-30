@@ -398,7 +398,7 @@ footer div.container div.row div.footer-col.logo img {
   main div.container div.archief div.table {
     width: 100vw;
   }
-  main div.container div.archief div.table table tbody tr td:first-child, main div.container div.archief div.table table tbody tr th:first-child, main div.container div.archief div.table table thead tr td:first-child, main div.container div.archief div.table table thead tr th:first-child {
+  main div.container div.archief div.table table tbody tr td.image, main div.container div.archief div.table table tbody tr th.image, main div.container div.archief div.table table thead tr td.image, main div.container div.archief div.table table thead tr th.image {
     width: 30%;
   }
 

@@ -109,7 +109,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 	$rightsMain = $hasRightsMain ? "<td width='3%'><input type='checkbox' class='addToMain' id='sendButton{$record['artikelId']}' {$rightsAdd}></td>" : "<td width='3%'></td><td width='3%'></td>";
 
 	$rows .= "<tr>
-					<td width='12%'><img src='.{$record['imageLocation']}' alt=''></td>
+					<td width='12%' class='image'><img src='.{$record['imageLocation']}' alt=''></td>
 					<td width='10%'>{$record['titel']}</td>
 					<td width='28%'>{$record['text']}</td>
 					<td width='17%'>{$record['datum']}</td>
@@ -158,7 +158,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 					<table>
 						<thead>
 							<tr>
-								<th></th>
+								<th class='image'></th>
 								<th>Artikel</th>
 								<th>Text</th>
 								<th>Datum</th>
