@@ -32,10 +32,6 @@ if ($record['usersId'] != $_SESSION['userid'] && $_SESSION['userRole'] < 2) {
 		<?php foreach ($dictionary as $category) {
 			echo '<option value="'. $category .'"'; if ($record['categorie'] == array_search($category, $dictionary)) { echo "selected";} echo '>'. $category .'</option>';
 		} ?>
-		<!-- <option value="Sport" <?php if ($record['categorie'] == 0) { echo "selected";} ?> >Sport</option>
-		<option value="Politiek" <?php if ($record['categorie'] == 1) { echo "selected";} ?> >Politiek</option>
-		<option value="Economie" <?php if ($record['categorie'] == 2) { echo "selected";} ?> >Economie</option>
-		<option value="Tech" <?php if ($record['categorie'] == 3) { echo "selected";} ?> >Tech</option> -->
 	</select>
 	<h3>Image</h3>
 	<img src=".<?php echo $record['imageLocation']; ?>" alt="">
