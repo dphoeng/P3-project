@@ -1,5 +1,5 @@
 <?php
-
+include '../includes/dictionary.inc.php';
 session_start();
 // check if authenticated to visit page
 if (isset($_SESSION["userid"])) {
@@ -24,10 +24,9 @@ if (isset($_SESSION["userid"])) {
     <h3>Text</h3>
     <input type="text" name="text" placeholder="Text" maxlength=100 required>
 	<select name="keuzeveld">
-		<option value="Sport">Sport</option>
-		<option value="Politiek">Politiek</option>
-		<option value="Economie">Economie</option>
-		<option value="Tech">Tech</option>
+		<?php foreach ($dictionary as $category) {
+			echo '<option value="'. $category .'">'. $category .'</option>';
+		} ?>
 	</select>
 	<h3>Image</h3>
     <input type="file" name="file" id="file" required>

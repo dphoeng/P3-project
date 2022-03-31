@@ -24,10 +24,9 @@
 			<div class="footer-col">
 				<h4>News</h4>
 				<ul>
-					<li><a onclick="scrollToCards('#sport')">Sport</a></li>
-					<li><a onclick="scrollToCards('#politiek')">Politiek</a></li>
-					<li><a onclick="scrollToCards('#economie')">Economie</a></li>
-					<li><a onclick="scrollToCards('#tech')">Tech</a></li>
+					<?php foreach ($categoryList as $categoryId) {
+						echo '<li><a onclick="scrollToCards(\'#'. strtolower($dictionary[$categoryId]) .'\')">'.$dictionary[$categoryId].'</a></li>';
+					} ?>
 				</ul>
 			</div>
 			<div class="footer-col">

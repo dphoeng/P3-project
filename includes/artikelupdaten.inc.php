@@ -2,6 +2,7 @@
 session_start();
 require_once "../pages/mysql.php";
 require_once "../includes/functions.inc.php";
+include "./dictionary.inc.php";
 
 if (!isset($_SESSION["userid"]))
 {
@@ -14,23 +15,8 @@ $artikelId = $_GET["artikelId"];
 if (isset($_POST["submit"])) {
 	$titel = $_POST["titel"];
 	$text = $_POST["text"];
-	switch ($_POST["keuzeveld"]) {
-		case "Sport":
-			$categorie = 0;
-			break;
 
-		case "Politiek":
-			$categorie = 1;
-			break;
-
-		case "Economie":
-			$categorie = 2;
-			break;
-
-		case "Tech":
-			$categorie = 3;
-			break;
-	}
+	$categorie = array_search($_POST["keuzeveld"], $dictionary);
 
 	$datum = date("Y-m-d H:i:s");
 

@@ -2,6 +2,8 @@
 
 session_start();
 include './mysql.php';
+include '../includes/dictionary.inc.php';
+
 if (!isset($_SESSION["userid"]))
 {
 	header("Location: ../index.php");
@@ -27,10 +29,13 @@ if ($record['usersId'] != $_SESSION['userid'] && $_SESSION['userRole'] < 2) {
     <h3>Text</h3>
     <input type="text" name="text" value="<?php echo $record['text']; ?>" maxlength=100 required>
 	<select name="keuzeveld">
-		<option value="Sport" <?php if ($record['categorie'] == 0) { echo "selected";} ?> >Sport</option>
+		<?php foreach ($dictionary as $category) {
+			echo '<option value="'. $category .'"'; if ($record['categorie'] == array_search($category, $dictionary)) { echo "selected";} echo '>'. $category .'</option>';
+		} ?>
+		<!-- <option value="Sport" <?php if ($record['categorie'] == 0) { echo "selected";} ?> >Sport</option>
 		<option value="Politiek" <?php if ($record['categorie'] == 1) { echo "selected";} ?> >Politiek</option>
 		<option value="Economie" <?php if ($record['categorie'] == 2) { echo "selected";} ?> >Economie</option>
-		<option value="Tech" <?php if ($record['categorie'] == 3) { echo "selected";} ?> >Tech</option>
+		<option value="Tech" <?php if ($record['categorie'] == 3) { echo "selected";} ?> >Tech</option> -->
 	</select>
 	<h3>Image</h3>
 	<img src=".<?php echo $record['imageLocation']; ?>" alt="">

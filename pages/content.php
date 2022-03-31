@@ -1,13 +1,5 @@
 <?php
 
-// dictionary for determining catargory
-$dictionary = [
-    0 => "Sport",
-    1 => "Politiek",
-    2 => "Economie",
-    3 => "Tech"
-];
-
 // class for each catagory, which has an array for all the articles with that catagory
 class CardInfo
 {
@@ -42,22 +34,7 @@ class Article
 // initialize array where all the different cards go into
 $cards = array();
 
-// sql for finding how many catagories there are
-$sql = 'SELECT DISTINCT categorie FROM artikelen WHERE sendToMain = 1';
-$result = $conn->query($sql);
-$categoriesCount = $result->num_rows;
-
-$categoryList = [];
-
-// find all category (numbers) and place them in a list
-if ($result->num_rows > 0)
-{
-    while ($category = $result->fetch_assoc()) {
-        array_push($categoryList, $category['categorie']);
-    }
-}
-
-// add catagory cards to cards array
+// add catagory cards to cards array -- $categoryList is initialized in index.php because it's needed by other files too
 for ($y = 0; $y < $categoriesCount; $y++)
 {
     array_push($cards, new CardInfo($dictionary[$categoryList[$y]]));

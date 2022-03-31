@@ -2,6 +2,7 @@
 session_start();
 include_once '../includes/functions.inc.php';
 include './mysql.php';
+include '../includes/dictionary.inc.php';
 
 // check if authenticated to visit page
 if (isset($_SESSION["userid"])) {
@@ -83,24 +84,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 	}
 	$hasRightsMain = $_SESSION["userRole"] > 1;
 
-	switch ($record['categorie']) {
-		case 0:
-			$categorieText = "Sport";
-			break;
-
-		case 1:
-			$categorieText = "Politiek";
-			break;
-
-		case 2:
-			$categorieText = "Economie";
-			break;
-
-		case 3:
-			$categorieText = "Tech";
-			break;
-	}
-
+	$categorieText = $dictionary[$record['categorie']];
 
 	// check permission for deletion/edit/add rights
 	$rightsAdd = $record['sendToMain'] ? "checked" : "";

@@ -2,6 +2,22 @@
 session_start();
 include_once './includes/functions.inc.php';
 include './pages/mysql.php';
+include './includes/dictionary.inc.php';
+
+// sql for finding how many catagories there are
+$sql = 'SELECT DISTINCT categorie FROM artikelen WHERE sendToMain = 1 ORDER BY categorie ASC';
+$result = $conn->query($sql);
+$categoriesCount = $result->num_rows;
+
+$categoryList = [];
+
+// find all category (numbers) and place them in a list
+if ($result->num_rows > 0)
+{
+    while ($category = $result->fetch_assoc()) {
+        array_push($categoryList, $category['categorie']);
+    }
+}
 
 ?>
 
