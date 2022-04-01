@@ -48,6 +48,11 @@ nav div.menu ul {
   display: flex;
   letter-spacing: 3px;
   padding: 0 2rem;
+  align-items: center;
+}
+nav div.menu ul.categories {
+  max-width: 60vw;
+  flex-wrap: wrap;
 }
 nav div.menu ul li {
   list-style: none;
@@ -175,7 +180,7 @@ main div.container div.archief div.table table tbody tr td div.role-select div.d
 main div.container div.archief div.table table tbody tr td div.role-select div.dropdown div.default-select a {
   cursor: default;
 }
-main div.container div.archief div.table table tbody tr td div.role-select div.dropdown div.default-select a::after {
+main div.container div.archief div.table table tbody tr td div.role-select div.dropdown div.default-select::after {
   content: "▼";
   position: absolute;
   right: 0;
@@ -385,7 +390,6 @@ footer div.container div.row div.footer-col.logo img {
   }
   main div.container div.card div.row div.main-article {
     height: 40%;
-    padding-bottom: 1rem;
     width: 100%;
   }
   main div.container div.card div.row div.main-article:not(.logged-in) {

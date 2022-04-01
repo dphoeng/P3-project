@@ -4,7 +4,7 @@
             <a href="./index.php"><img src="./src/img/dagblad_algemeen.png" alt=""></a>
         </div>
         <div class="menu">
-            <ul>
+            <ul class="categories">
 				<?php foreach ($categoryList as $categoryId) {
 					echo '<li><a onclick="scrollToCards(\'#'. strtolower($dictionary[$categoryId]) .'\')">'.$dictionary[$categoryId].'</a></li>';
 				} ?>
