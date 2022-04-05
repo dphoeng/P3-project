@@ -43,7 +43,7 @@ for ($y = 0; $y < $categoriesCount; $y++)
 // loop through each catagory that has an article and find up to 5 articles and put them into an array in the right card
 for ($x = 0; $x < $categoriesCount; $x++)
 {
-    $sql = 'SELECT * FROM artikelen WHERE sendToMain = 1 AND categorie = ' . $categoryList[$x] . ' ORDER BY datum DESC LIMIT 5';
+    $sql = 'SELECT * FROM artikelen WHERE sendToMain = 1 AND categorieId = ' . $categoryList[$x] . ' ORDER BY datum DESC LIMIT 5';
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {

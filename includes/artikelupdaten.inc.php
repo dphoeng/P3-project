@@ -61,10 +61,10 @@ if (isset($_POST["submit"])) {
 			echo "File is not an image.";
 		}
 
-		$stmt = $conn->prepare("UPDATE artikelen SET titel = ?, text = ?, categorie = ?, imageLocation = ? WHERE artikelId = ?");
+		$stmt = $conn->prepare("UPDATE artikelen SET titel = ?, text = ?, categorieId = ?, imageLocation = ? WHERE artikelId = ?");
 		$stmt->bind_param("ssisi", $titel, $text, $categorie, $save_file, $artikelId);
 	} else {
-		$stmt = $conn->prepare("UPDATE artikelen SET titel = ?, text = ?, categorie = ? WHERE artikelId = ?");
+		$stmt = $conn->prepare("UPDATE artikelen SET titel = ?, text = ?, categorieId = ? WHERE artikelId = ?");
 		$stmt->bind_param("ssii", $titel, $text, $categorie, $artikelId);
 	}
 

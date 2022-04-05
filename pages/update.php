@@ -30,7 +30,7 @@ if ($record['usersId'] != $_SESSION['userid'] && $_SESSION['userRole'] < 2) {
     <input type="text" name="text" value="<?php echo $record['text']; ?>" maxlength=100 required>
 	<select name="keuzeveld">
 		<?php foreach ($dictionary as $category) {
-			echo '<option value="'. $category .'"'; if ($record['categorie'] == array_search($category, $dictionary)) { echo "selected";} echo '>'. $category .'</option>';
+			echo '<option value="'. $category .'"'; if ($record['categorieId'] == array_search($category, $dictionary)) { echo "selected";} echo '>'. $category .'</option>';
 		} ?>
 	</select>
 	<h3>Image</h3>

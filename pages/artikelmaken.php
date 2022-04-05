@@ -1,4 +1,5 @@
 <?php
+include './mysql.php';
 include '../includes/dictionary.inc.php';
 session_start();
 // check if authenticated to visit page

@@ -84,7 +84,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 	}
 	$hasRightsMain = $_SESSION["userRole"] > 1;
 
-	$categorieText = $dictionary[$record['categorie']];
+	$categorieText = $dictionary[$record['categorieId']];
 
 	// check permission for deletion/edit/add rights
 	$rightsAdd = $record['sendToMain'] ? "checked" : "";
