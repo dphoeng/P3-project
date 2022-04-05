@@ -47,3 +47,5 @@ if (isset($_SESSION["userid"])) {
 
 </section>
 </main> 
+
+<?php include("./footerAlt.php");?>

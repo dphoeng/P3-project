@@ -84,3 +84,5 @@ if (isset($_SESSION["userid"])) {
         </div>
         </main>
 </body>
+
+<?php include("./footerAlt.php");?>

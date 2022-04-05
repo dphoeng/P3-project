@@ -34,3 +34,5 @@ if (isset($_SESSION["userid"])) {
     <button type="submit" name="submit">Publiceren</button>
 </form>
 </main>
+
+<?php include("./footerAlt.php");?>
