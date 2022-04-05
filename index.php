@@ -5,7 +5,7 @@ include './pages/mysql.php';
 include './includes/dictionary.inc.php';
 
 // sql for finding how many catagories there are
-$sql = 'SELECT DISTINCT categorieId FROM artikelen WHERE sendToMain = 1 ORDER BY categorieId ASC';
+$sql = 'SELECT DISTINCT categorieId FROM artikelen WHERE sendToMain = 1 AND categorieId IS NOT NULL ORDER BY categorieId ASC';
 $result = $conn->query($sql);
 $categoriesCount = $result->num_rows;
 
