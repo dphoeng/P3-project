@@ -114,9 +114,8 @@ while ($record = mysqli_fetch_assoc($result)) {
 <html lang="en">
 
 <head>
-	<title>Document</title>
+	<title>Dagblad Algemeen</title>
 	<link rel="stylesheet" href="../src/css/style.css">
-	<!-- <link rel="stylesheet" href="src/css/grid.css"> -->
 	<link rel="stylesheet" href="../src/css/hamburger.css">
 	<link rel="stylesheet" href="../src/css/hamburger.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">

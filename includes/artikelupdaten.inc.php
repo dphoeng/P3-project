@@ -69,9 +69,9 @@ if (isset($_POST["submit"])) {
 	}
 
 	if ($stmt->execute()) {
-		header("Location: ../index.php");
+		header("Location: ../pages/archief.php");
 	} else {
-		header("Location: ../index.php");
+		header("Location: ../pages/archief.php");
 	}
 	
 

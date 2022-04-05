@@ -300,6 +300,12 @@ main div.container div.text-editor {
   width: 60vw;
   margin: 1rem 0 3rem 0;
 }
+main div.container div.text-editor.login {
+  width: 40vw;
+}
+main div.container div.text-editor.login div.form form button {
+  height: 3rem;
+}
 main div.container div.text-editor div.logo {
   display: flex;
   align-items: center;
@@ -307,7 +313,7 @@ main div.container div.text-editor div.logo {
   padding-bottom: 1rem;
 }
 main div.container div.text-editor div.logo img {
-  height: 25vh;
+  height: 20vh;
 }
 main div.container div.text-editor div.logo h2 {
   margin: 0;
@@ -323,10 +329,10 @@ main div.container div.text-editor div.form form {
   flex-direction: column;
   row-gap: 1rem;
 }
-main div.container div.text-editor div.form form > input {
+main div.container div.text-editor div.form form input:not([type=file]) {
   padding: 1rem 1rem;
   border: none;
-  background-color: #ececec;
+  background-color: #dddddd;
   border-radius: 10px;
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
 }
@@ -334,40 +340,67 @@ main div.container div.text-editor div.form form textarea {
   padding: 1rem 1rem;
   resize: vertical;
   display: block;
-  background-color: #ececec;
+  background-color: #dddddd;
   border-radius: 10px;
   border: none;
   height: 25vh;
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
   font-family: "Roboto", sans-serif;
 }
-main div.container div.text-editor div.form form > div.form-row {
-  display: flex;
-  column-gap: 1rem;
-}
-main div.container div.text-editor div.form form > div.form-row select {
-  padding: 1rem 1rem;
-  background-color: #ececec;
-  border: none;
-  border-radius: 10px;
-  width: 40%;
-  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
-}
-main div.container div.text-editor div.form form > div.form-row input {
-  padding: 1rem 1rem;
-  width: 40%;
-}
-main div.container div.text-editor div.form form > div.form-row button {
+main div.container div.text-editor div.form form button {
   cursor: pointer;
-  width: 20%;
   border-radius: 10px;
   border: none;
   background-color: #EB88A5;
   box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
 }
-main div.container div.text-editor div.form form > div.form-row button:hover {
+main div.container div.text-editor div.form form button:hover {
   background-color: #E6B3F5;
-  border: 1px solid #cdcdcd;
+  outline: 1px solid #cdcdcd;
+}
+main div.container div.text-editor div.form form a, main div.container div.text-editor div.form form p {
+  text-align: center;
+}
+main div.container div.text-editor div.form form a:visited, main div.container div.text-editor div.form form p:visited {
+  color: #0000EE;
+}
+main div.container div.text-editor div.form form div.name {
+  display: flex;
+  column-gap: 1rem;
+}
+main div.container div.text-editor div.form form div.name input:first-child, main div.container div.text-editor div.form form div.name input:last-child {
+  width: 40%;
+}
+main div.container div.text-editor div.form form div.name input:nth-child(2) {
+  width: 20%;
+}
+main div.container div.text-editor div.form form div.form-row {
+  display: flex;
+  column-gap: 1rem;
+  height: 3rem;
+  justify-content: space-between;
+}
+main div.container div.text-editor div.form form div.form-row select {
+  padding: 1rem 1rem;
+  background-color: #dddddd;
+  border: none;
+  border-radius: 10px;
+  width: 40%;
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
+}
+main div.container div.text-editor div.form form div.form-row input {
+  padding: 1rem 1rem;
+  width: 30%;
+}
+main div.container div.text-editor div.form form div.form-row img {
+  height: 100%;
+  object-fit: cover;
+  width: 10%;
+  border-radius: 10px;
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
+}
+main div.container div.text-editor div.form form div.form-row button {
+  width: 20%;
 }
 
 footer {
@@ -480,6 +513,12 @@ footer div.container div.row div.footer-col.logo img {
   main div.container div.archief div.table table tbody tr td.image, main div.container div.archief div.table table tbody tr th.image, main div.container div.archief div.table table thead tr td.image, main div.container div.archief div.table table thead tr th.image {
     width: 30%;
   }
+  main div.container div.text-editor {
+    width: 80vw;
+  }
+  main div.container div.text-editor.login {
+    width: 60vw;
+  }
 
   footer div.container div.row div.footer-col {
     width: 50%;
@@ -492,6 +531,13 @@ footer div.container div.row div.footer-col.logo img {
 @media (max-width: 574px) {
   footer div.container div.row div.footer-col {
     width: 100%;
+  }
+
+  main div.container div.text-editor {
+    width: 100vw;
+  }
+  main div.container div.text-editor.login {
+    width: 80vw;
   }
 }
 div.contact-content {

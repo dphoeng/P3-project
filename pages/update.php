@@ -27,12 +27,13 @@ if ($record['usersId'] != $_SESSION['userid'] && $_SESSION['userRole'] < 2) {
 <html lang="en">
 
 <head>
-	<title>Document</title>
-	<link rel="stylesheet" href="../src/css/style.css">
-	<link rel="stylesheet" href="../src/css/hamburger.css">
-	<link rel="stylesheet" href="../src/css/hamburger.min.css">
+    <title>Dagblad Algemeen</title>
+    <link rel="stylesheet" href="../src/css/style.css">
+    <link rel="stylesheet" href="../src/css/hamburger.css">
+    <link rel="stylesheet" href="../src/css/hamburger.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 </head>
+
 
 <body>
 
@@ -47,16 +48,16 @@ if ($record['usersId'] != $_SESSION['userid'] && $_SESSION['userRole'] < 2) {
 				</div>
 
 				<div class="form">
-					<form action="../includes/artikelupdaten.inc.php?artikelId=<?php echo $artikelId; ?>" method="post" enctype="multipart/form-data">
+					<form action="../includes/artikelupdaten.inc.php?artikelId=<?php echo $artikelId; ?>" method="post" enctype="multipart/form-data" id="form">
 						<input type="text" name="titel" value="<?php echo $record['titel']; ?>" placeholder="Titel" maxlength=50 required>
-						<textarea name="text" form="form" value="<?php echo $record['text']; ?>" placeholder="Text" maxlength=500 required></textarea>
+						<textarea name="text" form="form" value="<?php echo $record['text']; ?>" placeholder="Text" maxlength=500 required><?php echo $record['text']; ?></textarea>
 						<div class="form-row">
 							<select name="keuzeveld">
 								<?php foreach ($dictionary as $category) {
 									echo '<option value="' . $category . '" '; if ($record['categorieId'] == array_search($category, $dictionary)) { echo "selected";} echo '>' . $category . '</option>';
 								} ?>
 							</select>
-							<input type="file" name="file" id="file" required>
+							<input type="file" name="file" id="file">
 							<img src=".<?php echo $record['imageLocation']; ?>" alt="">
 							<button type="submit" name="submit">Publiceren</button>
 						</div>
@@ -69,5 +70,7 @@ if ($record['usersId'] != $_SESSION['userid'] && $_SESSION['userRole'] < 2) {
 	<?php include("./footerAlt.php"); ?>
 
 </body>
+
+<script src="../src/js/nav.js"></script>
 
 </html>

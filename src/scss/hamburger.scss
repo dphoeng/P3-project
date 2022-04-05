@@ -54,6 +54,11 @@ $navbar-height: 16vh;
                 ul {
                     flex-direction: column;
                     z-index: 4;
+                    &.categories {
+                        height: 100%;
+                        overflow-y: scroll;
+                        flex-wrap: nowrap;
+                    }
                     li {
                         margin: 3rem 0;
                         a {
