@@ -80,7 +80,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 
 	$rows .= "<tr>
 				<td width='5%'>{$record['usersId']}</td>
-				<td width='35%'>{$record['usersFirstName']} {$record['usersMiddleName']} {$record['usersLastName']}</td>
+				<td width='35%' class='delete'>{$record['usersFirstName']} {$record['usersMiddleName']} {$record['usersLastName']}</td>
 				<td width='30%'>{$record['usersEmail']}</td>
 				<td width='25%'><div class='role-select'>
 								<div class='dropdown' id='dropdownId{$record['usersId']}'>
@@ -115,6 +115,9 @@ while ($record = mysqli_fetch_assoc($result)) {
 
 <head>
 	<title>Dagblad Algemeen</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../src/css/style.css">
 	<link rel="stylesheet" href="../src/css/hamburger.css">
 	<link rel="stylesheet" href="../src/css/hamburger.min.css">
@@ -137,7 +140,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 						<thead>
 							<tr>
 								<th>ID</th>
-								<th>Naam</th>
+								<th class="delete">Naam</th>
 								<th>Email</th>
 								<th>Rol</th>
 								<th>Del.</th>

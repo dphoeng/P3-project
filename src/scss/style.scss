@@ -26,7 +26,7 @@ nav {
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 100vw;
 	align-items: center;
 	box-shadow: 2px 2px 2px -2px rgba(0, 0, 0, 0.2);
 	padding: 0;
@@ -147,6 +147,7 @@ main {
 								height: 10vh;
 								border-left: .3rem solid #ac79bb;
 								border-right: .3rem solid #ac79bb;
+								word-break: break-word;
 								img {
 									overflow: hidden;
 									object-fit: cover;
@@ -170,6 +171,7 @@ main {
 								}
 								div.role-select {
 									display: flex;
+									justify-content: center;
 									div.dropdown {
 										display: flex;
 										width: 50%;
@@ -371,6 +373,7 @@ main {
 						border: none;
 						background-color: $banner-color;
 						box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.1);
+						overflow-wrap:	break-word;
 						&:hover {
 							background-color: $card-color;
 							outline: 1px solid rgb(205, 205, 205);
@@ -469,6 +472,7 @@ footer {
 						color: #ffffff;
 						display: block;
 						transition: all 0.3s ease;
+						overflow-wrap: break-word;
 						cursor: pointer;
 						&:hover {
 							color: #ffffff;
@@ -509,69 +513,6 @@ footer {
 	}
 }
 
-/*responsive*/
-@media (max-width: 992px) {
-	main div.container {
-		div.card {
-			margin: 2rem 0;
-			padding: .5rem;
-			border-radius: 0;
-			div.row {
-				flex-direction: column;
-				div.main-article {
-					height: 40%;
-					width: 100%;
-					&:not(.logged-in) {
-						height: 100%;
-					}
-				}
-				div.side-articles {
-					height: 60%;
-					width: 100%;
-				}
-			}
-		}
-		div.archief {
-			div.table {
-				width: 100vw;
-				table {
-					tbody, thead {
-						tr {
-							td.image, th.image {
-								width: 30%;
-							}
-						}
-					}
-				}
-			}	
-		}
-		div.text-editor {
-			width: 80vw;
-			&.login {
-				width: 60vw;
-			}
-		}
-
-	}
-	footer div.container div.row div.footer-col {
-		width: 50%;
-		margin-bottom: 30px;
-		&.alt {
-			width: 50%;
-		}
-	}
-}
-@media (max-width: 574px) {
-	footer div.container div.row div.footer-col {
-		width: 100%;
-	}
-	main div.container div.text-editor {
-		width: 100vw;
-		&.login {
-			width: 80vw;
-		}
-	}
-}
 
 div.contact-content {
 	padding-top: 10rem;
@@ -654,3 +595,117 @@ div.contact-content {
 .contact-form-container button:hover {
     background: #d7d7d7;
 }
+
+/*responsive*/
+
+@media screen and (max-width: 992px) {
+	main div.container {
+		div.card {
+			margin: 2rem 1rem;
+			h2 {
+				margin: 0 0 .5rem 0;
+			}
+			div.row {
+				flex-direction: column;
+				row-gap: .5rem;
+				div.main-article {
+					height: 40%;
+					width: 100%;
+					&:not(.logged-in) {
+						height: 100%;
+					}
+				}
+				div.side-articles {
+					height: calc(60% - 0.5rem);
+					width: 100%;
+					row-gap: .5rem;
+					div.row {
+						max-height: calc(25% - 0.25rem);
+					}
+				}
+			}
+		}
+		div.archief {
+			width: 97.5vw;
+		}
+		div.text-editor {
+			width: 80vw;
+			&.login {
+				width: 60vw;
+			}
+		}
+
+	}
+	footer div.container div.row div.footer-col {
+		width: 50%;
+		margin-bottom: 30px;
+		&.alt {
+			width: 50%;
+		}
+	}
+}
+
+@media screen and (max-width: 574px) {
+	body {
+		font-size: 16px;
+	}
+	footer div.container div.row div.footer-col {
+		width: 100%;
+	}
+	main div.container {
+		div.text-editor {
+			width: 97.5vw;
+			&.login {
+				width: 80vw;
+			}
+		}
+		div.archief div.pagination ul li a {
+			margin: 0;
+			padding: .75rem;
+		}
+	}
+
+	div.archief {
+		div.table {
+			table {
+				tbody, thead {
+					tr {
+						td.image, th.image {
+							display: none;
+						}
+					}
+				}
+			}
+		}	
+	}
+}
+
+@media screen and (max-width: 400px) {
+	main div.container div.archief {
+		div.table table {
+			tbody, thead {
+				tr {
+					td:nth-child(3), th:nth-child(3) {
+						display: none;
+					}
+				}
+			}
+		}
+		div.pagination ul li a {
+			padding: .5rem;
+		}
+	}
+}
+
+@media screen and (max-width: 340px) {
+	div.archief div.table table {
+		tbody, thead {
+			tr {
+				td.delete, th.delete {
+					display: none;
+				}
+			}
+		}
+	}
+}
+

@@ -100,7 +100,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 					<td width='12%' class='image'><img src='.{$record['imageLocation']}' alt=''></td>
 					<td width='10%'>{$record['titel']}</td>
 					<td width='28%'>{$record['text']}</td>
-					<td width='17%'>{$record['datum']}</td>
+					<td width='17%' class='delete'>{$record['datum']}</td>
 					<td width='17%'>{$name}</td>
 					<td width='7%'>{$categorieText}</td>
 					" . $rights . $rightsMain . "
@@ -114,6 +114,9 @@ while ($record = mysqli_fetch_assoc($result)) {
 
 <head>
 	<title>Dagblad Algemeen</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="../src/css/style.css">
 	<link rel="stylesheet" href="../src/css/hamburger.css">
 	<link rel="stylesheet" href="../src/css/hamburger.min.css">
@@ -148,7 +151,7 @@ while ($record = mysqli_fetch_assoc($result)) {
 								<th class='image'></th>
 								<th>Artikel</th>
 								<th>Text</th>
-								<th>Datum</th>
+								<th class="delete">Datum</th>
 								<th>Editor</th>
 								<th>Cat.</th>
 								<th>Ed.</th>
